@@ -461,7 +461,7 @@ let g:coc_global_extensions = [
       \'coc-actions',
       \'coc-markdownlint',
       \'coc-json',
-      \'coc-python',
+      \'coc-pyright',
       \'coc-docker',
       \'coc-yaml',
 \]
@@ -484,3 +484,8 @@ let g:coc_snippet_next = '<tab>'
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
+
+" Remove if not on headless server for better cursor in INSERT mode {{{
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
+set guicursor=
+" }}}
