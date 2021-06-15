@@ -16,7 +16,6 @@ Plug 'dense-analysis/ale'
 
 " Intellisense for vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Nash0x7E2/awesome-flutter-snippets'
 
 " Formatting
 Plug 'Chiel92/vim-autoformat'
@@ -32,9 +31,6 @@ Plug 'tpope/vim-surround'
 
 " Commenting things
 Plug 'tpope/vim-commentary'
-
-" Enhanced cpp highlighting
-Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Indentation guide
 Plug 'yggdroot/indentline'
@@ -66,9 +62,6 @@ Plug 'sickill/vim-pasta'
 " Code finder
 Plug 'liuchengxu/vista.vim'
 
-" Markdown preview with sync scroll
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-
 " I'm smooth as fuck boi
 Plug 'yuttie/comfortable-motion.vim'
 
@@ -77,15 +70,6 @@ Plug 'tpope/vim-repeat'
 
 " To avoid jk mappings
 Plug 'zhou13/vim-easyescape'
-
-" Flutter plugins
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
-Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
-
-" For ROS
-Plug 'taketwo/vim-ros'
 
 call plug#end()
 
@@ -132,10 +116,9 @@ let g:ale_lint_on_buffer_change = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = {'python': ['flake8'], 'cpp':['ccls', 'clang']}
+let g:ale_linters = {'python': ['flake8']}
 let g:ale_python_flake8_options = '--ignore=E1,E23,W503'
-let g:ale_fixers = {'python': ['yapf', 'black', 'add_blank_lines_for_python_control_statements', 'isort'], 'cpp':['clangtidy'], 'c':['clangtidy'], 'javascript':['fixjson'], 'markdown':['prettier']}
-let g:ale_python_pylint_options = '--rcfile /home/utkarsh/.pylintrc'
+let g:ale_fixers = {'python': ['black', 'add_blank_lines_for_python_control_statements', 'isort']}
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
 " }}}
@@ -168,7 +151,7 @@ let g:NERDTreeHighlightCursorline = 0
 
 nnoremap <silent> <C-f> :NERDTreeToggle<CR>
 
-" Vista
+" Vista {{{
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
@@ -314,21 +297,6 @@ let g:vim_markdown_conceal = 0
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
 let g:vim_markdown_conceal_code_blocks = 0
-" }}}
-
-" Flutter specifics {{{
-nnoremap <leader>fe :CocCommand flutter.emulators<CR>
-nnoremap <leader>fr :CocCommand flutter.run<CR>
-nnoremap <leader>fq :CocCommand flutter.dev.quit<CR>
-nnoremap <leader>fh :CocCommand flutter.dev.hotReload<CR>
-nnoremap <leader>fR :CocCommand flutter.dev.hotRestart<CR>
-nnoremap <leader>fo :CocCommand flutter.dev.openDevLog<CR>
-nnoremap <leader>fg :CocCommand flutter.pub.get<CR>
-let g:dart_style_guide = 2
-let g:dart_format_on_save = 1
-let g:lsc_auto_map = v:true
-
-set completeopt=menu,menuone,preview,noselect,noinsert
 " }}}
 
 " CoC below taken from the official repo {{{
@@ -493,12 +461,8 @@ let g:coc_global_extensions = [
       \'coc-actions',
       \'coc-markdownlint',
       \'coc-json',
-      \'coc-java',
-      \'coc-flutter',
       \'coc-python',
       \'coc-docker',
-      \'coc-clangd',
-      \'coc-cmake',
       \'coc-yaml',
 \]
 
@@ -516,11 +480,6 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 " Coc ends here finally }}}
-
-" ROS {{{
-let g:ros_build_system = 'catkin'
-let g:ros_catkin_make_options = '-j7 -DCMAKE_BUILD_TYPE=RelWithDebInfo'
-" }}}
 
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
