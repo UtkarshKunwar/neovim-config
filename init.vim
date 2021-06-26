@@ -71,6 +71,12 @@ Plug 'tpope/vim-repeat'
 " To avoid jk mappings
 Plug 'zhou13/vim-easyescape'
 
+" Git commands
+Plug 'tpope/vim-fugitive'
+
+" Snippets
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 " Appearance {{{
@@ -118,7 +124,7 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_python_flake8_options = '--ignore=E1,E23,W503'
-let g:ale_fixers = {'python': ['black', 'add_blank_lines_for_python_control_statements', 'isort']}
+let g:ale_fixers = {'python': ['black', 'isort']}
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
 " }}}
@@ -488,4 +494,7 @@ endif
 " Remove if not on headless server for better cursor in INSERT mode {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 set guicursor=
+
+" Docstring generation config
+let g:ultisnips_python_style = 'numpy'
 " }}}
