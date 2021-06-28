@@ -54,7 +54,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'luochen1990/rainbow'
 
 " Them easy-motion
-Plug 'easymotion/vim-easymotion'
+Plug 'phaazon/hop.nvim'
 
 " Better indented pasting
 Plug 'sickill/vim-pasta'
@@ -154,8 +154,7 @@ let g:NERDTreeDisableExactMatchHighlight = 1
 let g:NERDTreeDisablePatternMatchHighlight = 1
 let g:NERDTreeSyntaxEnabledExtensions = ['c', 'cpp', 'dart', 'java', 'jpg', 'json', 'md', 'mp4', 'png', 'py', 'yaml']
 let g:NERDTreeHighlightCursorline = 0
-
-nnoremap <silent> <C-f> :NERDTreeToggle<CR>
+nnoremap <silent> <Space>f :NERDTreeToggle<CR>
 
 " Vista {{{
 function! NearestMethodOrFunction() abort
@@ -184,12 +183,8 @@ nnoremap <silent> <Space>v :Vista!!<CR>
 
 " Navigation {{{
 " Sets motion leader as <Leader> instead of <Leader><Leader>
-map <Leader> <Plug>(easymotion-prefix)
-map f <Plug>(easymotion-bd-w)
-let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys='SADFJKLEWCMPGH'
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_smartsign_us = 1
+lua require'hop'.setup {keys = 'sadfjklewcmpgh', teasing = false, case_insensitive = true}
+map f :HopWord<CR>
 
 " Window tab thingies
 nnoremap <silent> <C-t> :tabnew <bar> :NERDTreeMirror <bar> wincmd p <CR>
@@ -232,14 +227,14 @@ let g:comfortable_motion_no_default_key_mappings = 1
 let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
 nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 3)<CR>
 nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -3)<CR>
-nnoremap <Space>f :Files<CR>
+nnoremap <silent> <C-f> :Files<CR>
 " }}}
 
 " Miscellaneous {{{
 " folding settings
 set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
+set nofoldenable        "don't fold by default
 set foldlevel=1         "this is just what i use
 
 syntax on
@@ -267,7 +262,8 @@ nnoremap p "+p
 vnoremap P "+P
 vnoremap p "+p
 
-tnoremap <Esc> <C-\><C-n>
+au TermOpen * tnoremap <Esc> <c-\><c-n>
+au FileType fzf tunmap <Esc>
 
 set tildeop
 
@@ -491,10 +487,10 @@ if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
 
+" Docstring generation config
+let g:ultisnips_python_style = 'numpy'
+
 " Remove if not on headless server for better cursor in INSERT mode {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 set guicursor=
-
-" Docstring generation config
-let g:ultisnips_python_style = 'numpy'
 " }}}
