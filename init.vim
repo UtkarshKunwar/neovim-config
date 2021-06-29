@@ -77,6 +77,10 @@ Plug 'tpope/vim-fugitive'
 " Snippets
 Plug 'honza/vim-snippets'
 
+" Minimap for long range skill shots
+Plug 'rinx/nvim-minimap'
+Plug 'Xuyuanp/scrollbar.nvim'
+
 call plug#end()
 
 " Appearance {{{
@@ -171,6 +175,7 @@ let g:vista#renderer#icons = {
 \   "function": "\uf794",
 \   "variable": "\uf71b",
 \  }
+let g:vista_fzf_preview = ['right:50%']
 autocmd bufenter * if winnr("$") == 1 && vista#sidebar#IsOpen() | execute "normal! :q!\<CR>" | endif
 " By default vista.vim never run if you don't call it explicitly.
 "
@@ -489,6 +494,17 @@ endif
 
 " Docstring generation config
 let g:ultisnips_python_style = 'numpy'
+
+augroup ScrollbarInit
+  autocmd!
+  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+  autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+augroup end
+
+let g:minimap#window#width = 15
+let g:minimap#window#height = 40
+nnoremap <silent> <Space>m :MinimapToggle<CR>
 
 " Remove if not on headless server for better cursor in INSERT mode {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
