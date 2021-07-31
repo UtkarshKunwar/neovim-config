@@ -133,13 +133,6 @@ let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
 " }}}
 
-" Formatting {{{
-set tabstop     =4
-set softtabstop =4
-set shiftwidth  =4
-set expandtab
-" }}}
-
 " Exploring {{{
 " NERDTree
 let NERDTreeMinimalUI = 1
@@ -199,6 +192,7 @@ nnoremap <silent> <C-x> :tabclose<CR>
 nnoremap H ^
 nnoremap L $
 nnoremap ; :
+nnoremap <C-l> <C-i>
 
 nmap <silent> < <C-w><
 nmap <silent> > <C-w>>
@@ -509,4 +503,12 @@ nnoremap <silent> <Space>m :MinimapToggle<CR>
 " Remove if not on headless server for better cursor in INSERT mode {{{
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 set guicursor=
+" }}}
+
+
+" Formatting {{{
+set tabstop     =4
+set softtabstop =4
+set shiftwidth  =4
+set expandtab
 " }}}
