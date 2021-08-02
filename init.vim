@@ -81,6 +81,9 @@ Plug 'honza/vim-snippets'
 Plug 'rinx/nvim-minimap'
 Plug 'Xuyuanp/scrollbar.nvim'
 
+" Automatic python docstrings
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+
 call plug#end()
 
 " Appearance {{{
@@ -511,4 +514,9 @@ set tabstop     =4
 set softtabstop =4
 set shiftwidth  =4
 set expandtab
+
+" For pydocstring
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+let g:pydocstring_formatter = "numpy"
+let g:pydocstring_doq_path = "$HOME/.local/bin/doq"
 " }}}
