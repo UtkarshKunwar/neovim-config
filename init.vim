@@ -81,8 +81,8 @@ Plug 'honza/vim-snippets'
 Plug 'rinx/nvim-minimap'
 Plug 'Xuyuanp/scrollbar.nvim'
 
-" Automatic python docstrings
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install', 'for': 'python' }
+" Automatic docstrings
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 call plug#end()
 
@@ -491,6 +491,7 @@ endif
 
 " Docstring generation config
 let g:ultisnips_python_style = 'numpy'
+let g:doge_doc_standard_python = 'numpy'
 
 augroup ScrollbarInit
   autocmd!
@@ -515,8 +516,6 @@ set softtabstop =4
 set shiftwidth  =4
 set expandtab
 
-" For pydocstring
+" For python
 autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-let g:pydocstring_formatter = "numpy"
-let g:pydocstring_doq_path = "$HOME/.local/bin/doq"
 " }}}
