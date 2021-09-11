@@ -82,7 +82,7 @@ Plug 'rinx/nvim-minimap'
 Plug 'Xuyuanp/scrollbar.nvim'
 
 " Automatic docstrings
-Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+Plug 'kkoomen/vim-doge', {'do': { -> doge#install({ 'headless': 1 }) }}
 
 call plug#end()
 
