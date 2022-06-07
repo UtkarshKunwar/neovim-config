@@ -45,7 +45,7 @@ Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 " Detects indent settings on a file by file basis
-Plug 'ciaranm/detectindent'
+Plug 'timakro/vim-yadi'
 
 " Git diffs in gutter
 Plug 'airblade/vim-gitgutter'
@@ -89,6 +89,7 @@ call plug#end()
 " Appearance {{{
 set background=dark
 set termguicolors
+set guifont=FiraCodeStyle\ Nerd\ Font:h14
 let g:materialmonokai_italic=1
 let g:materialmonokai_subtle_spell=1
 let g:airline_theme='materialmonokai'
@@ -108,6 +109,8 @@ set showbreak=↳
 " Leading space characters
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_fileTypeExclude = ["nerdtree"]
+let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
 
 " Rainbow bracket colors to match with the theme
 let g:rainbow_active = 1
@@ -269,7 +272,20 @@ au FileType fzf tunmap <Esc>
 
 set tildeop
 
-au BufWinEnter * :DetectIndent
+" Try to auto detect and use the indentation of a file when opened.
+autocmd BufRead * DetectIndent
+
+" Otherwise use file type specific indentation. E.g. tabs for Makefiles
+" and 4 spaces for Python. This is optional.
+filetype plugin indent on
+
+" Set a fallback here in case detection fails and there is no file type
+" plugin available. You can also omit this, then Vim defaults to tabs.
+set expandtab shiftwidth=4 softtabstop=4
+
+" You stay in control of your tabstop setting.
+set tabstop=4
+
 let g:airline_powerline_fonts = 1
 
 " For conceal markers.
@@ -464,6 +480,7 @@ let g:coc_global_extensions = [
       \'coc-calc',
       \'coc-actions',
       \'coc-markdownlint',
+      \'coc-tsserver',
       \'coc-json',
       \'coc-pyright',
       \'coc-docker',
@@ -509,13 +526,8 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 set guicursor=
 " }}}
 
-
-" Formatting {{{
-set tabstop     =4
-set softtabstop =4
-set shiftwidth  =4
-set expandtab
-
-" For python
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+" Neovide {{{
+let g:neovide_refresh_rate=60
+let g:neovide_remember_window_size=v:true
+let g:neovide_cursor_antialiasing=v:true
 " }}}

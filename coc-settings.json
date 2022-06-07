@@ -7,7 +7,7 @@
   "suggest.noselect": false,
   "suggest.triggerAfterInsertEnter": true,
   "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": ["python"],
+  "coc.preferences.formatOnSaveFiletypes": ["python", "markdown", "html"],
   "python.formatting.provider": "black",
   "suggest.enablePreview": true,
   "suggest.maxPreviewWidth": 35,
