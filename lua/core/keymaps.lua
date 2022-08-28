@@ -24,18 +24,38 @@ keymap("n", "<Left>", "<C-w>h", opts)
 keymap("n", "<Down>", "<C-w>j", opts)
 keymap("n", "<Up>", "<C-w>k", opts)
 keymap("n", "<Right>", "<C-w>l", opts)
+keymap("n", "<C-Left>", "<C-w>H", opts)
+keymap("n", "<C-Down>", "<C-w>J", opts)
+keymap("n", "<C-Up>", "<C-w>K", opts)
+keymap("n", "<C-Right>", "<C-w>L", opts)
 
 keymap("n", "<leader>f", ":Lex 30<cr>", opts)
 
+-- Tabs --
+keymap("n", "<C-t>", ":tabnew <bar> :NERDTreeMirror <bar> wincmd p <CR>", opts)
+keymap("n", "<C-x>", ":tabclose<CR>", opts)
+
+-- Navigation that just makes sense to me --
+keymap("n", "H", "^", opts)
+keymap("n", "L", "$", opts)
+keymap("n", ";", ":", opts)
+keymap("n", "0", "g0", opts)
+keymap("n", "$", "g$", opts)
+keymap("n", "U", "<C-r>", opts)
+
 -- Resize with arrows
-keymap("n", "+", ":resize +1<CR>", opts)
-keymap("n", "-", ":resize -1<CR>", opts)
-keymap("n", "<", ":vertical resize -1<CR>", opts)
-keymap("n", ">", ":vertical resize +1<CR>", opts)
+keymap("n", "+", "<C-w>+", opts)
+keymap("n", "-", "<C-w>-", opts)
+keymap("n", "<", "<C-w><", opts)
+keymap("n", ">", "<C-w>>", opts)
+keymap("n", "=", "<C-w>=", opts)
 
 -- Navigate buffers
 keymap("n", "<C-Tab>", ":bnext<CR>", opts)
 keymap("n", "<C-S-Tab>", ":bprevious<CR>", opts)
+
+vim.opt.wildcharm = ("\t"):byte()
+keymap("n", "<Leader><Tab>", ":buffer<Space><Tab>", opts)
 
 -- Insert --
 -- Press jk fast to enter
