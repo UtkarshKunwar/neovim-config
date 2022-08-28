@@ -40,10 +40,22 @@ if not status_ok then
   return
 end
 
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
 -- Install plugins
 return packer.startup(function(use)
   -- Add you plugins here:
-  use 'wbthomason/packer.nvim' -- packer can manage itself
+  use "wbthomason/packer.nvim" -- packer can manage itself
+  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use {"andymass/vim-matchup", event="VimEnter"} -- Extend % support for matching keywords
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
