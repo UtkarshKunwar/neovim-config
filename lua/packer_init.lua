@@ -57,6 +57,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use {"andymass/vim-matchup", event="VimEnter"} -- Extend % support for matching keywords
   use "flazz/vim-colorschemes" -- All the colorschemes
+  use "Mofiqul/vscode.nvim" -- Look like VSCode for the normies
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
