@@ -2,3 +2,4 @@ autoload/
 .netrwhist
 report.*.json
 .vim/
+plugin/packer_compiled.lua
