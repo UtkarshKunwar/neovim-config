@@ -76,6 +76,10 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple installation of LSPs
   use "hrsh7th/cmp-nvim-lsp" -- completion for nvim LSP
 
+  -- Fuzzy file finder
+  use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope-media-files.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
