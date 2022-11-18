@@ -87,6 +87,12 @@ return packer.startup(function(use)
   }
   use "p00f/nvim-ts-rainbow"
 
+  -- Markdown previewer
+  use {
+    'toppair/peek.nvim',
+    run = 'deno task --quiet build:fast'
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
