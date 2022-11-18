@@ -23,3 +23,5 @@ configs.setup {
         -- termcolors = {}, -- table of colour name strings
     }
 }
+
+require('hlargs').setup()
