@@ -97,6 +97,8 @@ return packer.startup(function(use)
     run = 'deno task --quiet build:fast'
   }
 
+  use "windwp/nvim-autopairs" -- Automatically close brackets
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
