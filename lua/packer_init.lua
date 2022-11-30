@@ -107,6 +107,10 @@ return packer.startup(function(use)
   -- Gitgutter
   use "lewis6991/gitsigns.nvim"
 
+  -- File Tree Plugin
+  use "nvim-tree/nvim-web-devicons"
+  use "nvim-tree/nvim-tree.lua"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
