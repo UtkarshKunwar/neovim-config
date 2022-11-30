@@ -1,15 +1,12 @@
-local colorscheme = "monokain"
-
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+local status_ok, vscode = pcall(require, "vscode")
 if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-  return
+    return
 end
 
-vim.o.background = 'dark'
+vim.o.background = "dark"
 
-local c = require('vscode.colors')
-require('vscode').setup({
+local c = require("vscode.colors")
+vscode.setup({
     -- Enable transparent background
     transparent = false,
 
@@ -21,7 +18,7 @@ require('vscode').setup({
 
     -- Override colors (see ./lua/vscode/colors.lua)
     color_overrides = {
-        vscLineNumber = '#777777',
+        vscLineNumber = "#777777",
     },
 
     -- Override highlight groups (see ./lua/vscode/theme.lua)
