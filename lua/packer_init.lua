@@ -97,7 +97,12 @@ return packer.startup(function(use)
     run = 'deno task --quiet build:fast'
   }
 
+  -- Brackets
   use "windwp/nvim-autopairs" -- Automatically close brackets
+
+  -- Commenting
+  use "numToStr/Comment.nvim" -- allows commenting
+  use "JoosepAlviste/nvim-ts-context-commentstring" -- Uses treesitter to get context for better commenting
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
