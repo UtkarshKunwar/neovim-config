@@ -6,9 +6,8 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = "\\"
 
 -- Modes
 --   normal_mode = "n",
@@ -29,10 +28,8 @@ keymap("n", "<C-Down>", "<C-w>J", opts)
 keymap("n", "<C-Up>", "<C-w>K", opts)
 keymap("n", "<C-Right>", "<C-w>L", opts)
 
-keymap("n", "<leader>f", ":Lex 30<cr>", opts)
-
 -- Tabs --
-keymap("n", "<C-t>", ":tabnew <bar> :NERDTreeMirror <bar> wincmd p <CR>", opts)
+keymap("n", "<C-t>", ":tabnew<CR>", opts)
 
 -- Navigation that just makes sense to me --
 keymap("n", "H", "^", opts)
@@ -89,3 +86,6 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Telescope --
 keymap("n", "<C-f>", "<cmd>lua require'telescope.builtin'.find_files()<CR>", opts)
 keymap("n", "<C-A-f>", "<cmd>lua require'telescope.builtin'.live_grep()<CR>", opts)
+
+-- NVIM-Tree --
+keymap("n", "<Space>f", "<cmd>lua require'nvim-tree'.toggle(false, true)<CR>", opts)
