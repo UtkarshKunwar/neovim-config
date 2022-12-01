@@ -22,7 +22,7 @@ nvim_tree.setup {
         "dashboard",
         "alpha",
     },
-    open_on_tab = false,
+    open_on_tab = true,
     hijack_cursor = false,
     update_cwd = true,
     hijack_directories = {
@@ -38,6 +38,12 @@ nvim_tree.setup {
             error = "",
         },
     },
+    tab = {
+        sync = {
+            open = true,
+            close = true,
+        },
+    },
     update_focused_file = {
         enable = true,
         update_cwd = true,
@@ -48,10 +54,23 @@ nvim_tree.setup {
         ignore = false,
         timeout = 500,
     },
+    filters = {
+        custom = {"^\\.git"},
+    },
+    actions = {
+        open_file = {
+            window_picker = {enable = true},
+            resize_window = true,
+        },
+        remove_file = {
+            close_window = true,
+        }
+    },
     view = {
         hide_root_folder = false,
         side = "left",
-        adaptive_size = true,
+        adaptive_size = false,
+        width = 30,
         mappings = {
             custom_only = false,
             list = {
@@ -97,3 +116,27 @@ nvim_tree.setup {
         }
     }
 }
+
+-- {{ Auto close functionality
+-- nvim-tree is also there in modified buffers so this function filter it out
+local modifiedBufs = function(bufs)
+    local t = 0
+    for _,v in pairs(bufs) do
+        if v.name:match("NvimTree_") == nil then
+            t = t + 1
+        end
+    end
+    return t
+end
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    nested = true,
+    callback = function()
+        if #vim.api.nvim_list_wins() == 1 and
+        vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil and
+        modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
+            vim.cmd "quit"
+        end
+    end
+})
+-- }}
