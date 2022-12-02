@@ -3,11 +3,21 @@ if not status_ok then
   return
 end
 
+local bufdel_status_ok, bufdel = pcall(require, "bufdel")
+if not bufdel_status_ok then
+  return
+end
+
+bufdel.setup {
+    next = "tabs",
+    quit = "false",
+}
+
 bufferline.setup {
   options = {
     numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-    close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-    right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+    close_command = "BufDel %d", -- can be a string | function, see "Mouse actions"
+    right_mouse_command = "BufDel %d", -- can be a string | function, see "Mouse actions"
     left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
     middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
     -- NOTE: this plugin is designed with this icon in mind,

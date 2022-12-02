@@ -114,7 +114,7 @@ return packer.startup(function(use)
 
   -- BufferLine
   use "akinsho/bufferline.nvim"
-  use "moll/vim-bbye"
+  use "ojroques/nvim-bufdel"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
