@@ -28,12 +28,13 @@ keymap("n", "<C-Down>", "<C-w>J", opts)
 keymap("n", "<C-Up>", "<C-w>K", opts)
 keymap("n", "<C-Right>", "<C-w>L", opts)
 
--- Tabs --
-keymap("n", "<C-t>", ":tabnew<CR>", opts)
+-- "Tabs" --
+keymap("n", "<C-t>", ":enew<CR>", opts)
+keymap("n", "H", ":bprev<CR>", opts)
+keymap("n", "L", ":bnext<CR>", opts)
+keymap("n", "<Space>q", ":BufDel<CR>", opts)
 
 -- Navigation that just makes sense to me --
-keymap("n", "H", "^", opts)
-keymap("n", "L", "$", opts)
 keymap("n", ";", ":", opts)
 keymap("n", "0", "g0", opts)
 keymap("n", "$", "g$", opts)
