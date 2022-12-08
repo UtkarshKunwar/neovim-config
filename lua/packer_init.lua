@@ -76,6 +76,7 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enables LSP
   use "williamboman/nvim-lsp-installer" -- simple installation of LSPs
   use "hrsh7th/cmp-nvim-lsp" -- completion for nvim LSP
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Fuzzy file finder
   use "nvim-telescope/telescope.nvim"

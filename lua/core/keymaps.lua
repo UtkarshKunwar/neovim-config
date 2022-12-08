@@ -17,6 +17,8 @@ vim.g.maplocalleader = "\\"
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- For LSP related keymaps, check the lua/plugins/lsp/handlers.lua
+
 -- Normal --
 -- Better window navigation
 keymap("n", "<Left>", "<C-w>h", opts)
