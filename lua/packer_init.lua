@@ -117,6 +117,9 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "ojroques/nvim-bufdel"
 
+  -- LuaLine
+  use "nvim-lualine/lualine.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
