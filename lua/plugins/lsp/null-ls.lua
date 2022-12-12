@@ -37,7 +37,6 @@ null_ls.setup({
         formatting.codespell,
         diagnostics.codespell,
 
-        diagnostics.commitlint,
         diagnostics.shellcheck,
         diagnostics.todo_comments,
         diagnostics.zsh,
