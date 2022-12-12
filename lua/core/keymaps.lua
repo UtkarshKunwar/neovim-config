@@ -93,3 +93,6 @@ keymap("n", "<Space>f", "<cmd>lua require'nvim-tree'.toggle(false, true)<CR>", o
 keymap("n", "<Space>gb", "<cmd>lua require'gitsigns'.blame_line()<CR>", opts)
 keymap("n", "<Space>gp", "<cmd>lua require'gitsigns'.preview_hunk()<CR>", opts)
 keymap("n", "<Space>gd", "<cmd>lua require'gitsigns'.diffthis()<CR>", opts)
+
+-- Projects --
+keymap("n", "<C-P>", "<cmd>lua require'telescope'.extensions.projects.projects()<CR>", opts)
