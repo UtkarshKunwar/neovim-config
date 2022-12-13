@@ -132,6 +132,9 @@ return packer.startup(function(use)
   -- IndentLine
   use "lukas-reineke/indent-blankline.nvim"
 
+  -- Welcome screen
+  use "goolord/alpha-nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
