@@ -39,9 +39,6 @@ configs.setup {
     }
 }
 
-vim.api.nvim_set_hl(0, "TSDefinition", {bg="#444444"})
-vim.api.nvim_set_hl(0, "TSDefinitionUsage", {bg="#333333"})
-
 -- HACK: for glitchy rainbow https://github.com/p00f/nvim-ts-rainbow/issues/112#issuecomment-1310835936
 vim.api.nvim_command([[
     autocmd BufNewFile,BufReadPost * TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow | TSDisable rainbow | TSEnable rainbow
