@@ -3,6 +3,11 @@ if not status_ok then
     return
 end
 
+local status_ok_hlargs, _ = pcall(require, "hlargs")
+if not status_ok_hlargs then
+    return
+end
+
 configs.setup {
     ensure_installed = "all", -- one of "all" or a list of languages
     sync_install = false, -- install languages asynchronously
@@ -26,9 +31,16 @@ configs.setup {
         enable = true,
         enable_autocmd = false,
     },
+    refactor = {
+        highlight_definitions = {
+            enable = true,
+            clear_on_cursor_move = true,
+        },
+    }
 }
 
-require('hlargs').setup()
+vim.api.nvim_set_hl(0, "TSDefinition", {bg="#444444"})
+vim.api.nvim_set_hl(0, "TSDefinitionUsage", {bg="#333333"})
 
 -- HACK: for glitchy rainbow https://github.com/p00f/nvim-ts-rainbow/issues/112#issuecomment-1310835936
 vim.api.nvim_command([[

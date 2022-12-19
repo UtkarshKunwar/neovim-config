@@ -92,6 +92,10 @@ return packer.startup(function(use)
     "m-demare/hlargs.nvim",
     requires = { "nvim-treesitter/nvim-treesitter" }
   }
+  use {
+    "nvim-treesitter/nvim-treesitter-refactor",
+    requires = { "nvim-treesitter/nvim-treesitter" }
+  }
 
   -- Markdown previewer
   use {
