@@ -49,12 +49,12 @@ vim.g.indent_blankline_context_patterns = {
 -- vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
 -- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
 vim.opt.list = true
-vim.opt.listchars:append "lead:·"
+vim.opt.listchars:append "lead:·,eol:¬,tab:> "
 
 -- To break long lines
 vim.opt.breakindent = true
-vim.opt.breakindentopt="shift:2"
-vim.opt.showbreak="↳"
+vim.opt.breakindentopt = "shift:4"
+vim.opt.showbreak = "↳"
 
 indent_blankline.setup({
     show_end_of_line = true,

@@ -1,7 +1,5 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -54,7 +52,7 @@ keymap("n", "<C-Tab>", ":bnext<CR>", opts)
 keymap("n", "<C-S-Tab>", ":bprevious<CR>", opts)
 
 vim.opt.wildcharm = ("\t"):byte()
-keymap("n", "<Leader><Tab>", ":buffer<Space><Tab>", opts)
+keymap("n", "<Leader><Tab>", "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -85,6 +83,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Telescope --
 keymap("n", "<C-f>", "<cmd>lua require'telescope.builtin'.find_files()<CR>", opts)
 keymap("n", "<C-A-f>", "<cmd>lua require'telescope.builtin'.live_grep()<CR>", opts)
+keymap("n", "<C-P>", "<cmd>lua require'telescope'.extensions.projects.projects()<CR>", opts)
 
 -- NVIM-Tree --
 keymap("n", "<Space>f", "<cmd>lua require'nvim-tree'.toggle(false, true)<CR>", opts)
