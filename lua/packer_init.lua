@@ -139,6 +139,9 @@ return packer.startup(function(use)
   -- Welcome screen
   use "goolord/alpha-nvim"
 
+  -- Which key to press for doing what
+  use "folke/which-key.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
