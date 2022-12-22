@@ -31,12 +31,6 @@ configs.setup {
         enable = true,
         enable_autocmd = false,
     },
-    refactor = {
-        highlight_definitions = {
-            enable = true,
-            clear_on_cursor_move = true,
-        },
-    }
 }
 
 -- HACK: for glitchy rainbow https://github.com/p00f/nvim-ts-rainbow/issues/112#issuecomment-1310835936

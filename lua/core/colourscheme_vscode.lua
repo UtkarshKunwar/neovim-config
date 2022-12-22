@@ -27,7 +27,5 @@ vscode.setup({
         -- use colors from this colorscheme by requiring vscode.colors!
         Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
         CursorLine = { fg=c.vscDarkBlue, bg="#272727", bold=false },
-        TSDefinition = {bg="#444444"},
-        TSDefinitionUsage = {bg="#333333"},
     }
 })
