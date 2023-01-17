@@ -1,16 +1,21 @@
 local servers = {
-    "awk_ls",
-    "cmake",
-    "clangd",
-    "dockerls",
-    "html",
-    "jsonls",
-    "pyright",
-    "rust_analyzer",
-    "sumneko_lua",
-    "tsserver",
-    "yamlls",
-    "marksman",
+    "awk_ls", -- awk
+    "bashls", -- bash
+    "cmake", -- cmake
+    "clangd", -- C/C++
+    "dockerls", -- docker
+    "groovyls", -- Jenkins
+    "ltex", -- LaTeX
+    "taplo", -- ToML
+    "vimls", -- Vim
+    "html", -- HTML
+    "jsonls", -- JSON
+    "pyright", -- Python
+    "rust_analyzer", -- Rust
+    "sumneko_lua", -- Lua
+    "tsserver", -- TypeScript
+    "yamlls", -- YAML
+    "marksman", -- MarkDown
 }
 
 local settings = {
@@ -24,6 +29,9 @@ local settings = {
     },
     log_level = vim.log.levels.INFO,
     max_concurrent_installers = 4,
+    providers = {
+        "mason.providers.registry-api",
+    }
 }
 
 require("mason").setup(settings)
