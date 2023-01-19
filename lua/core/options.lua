@@ -36,6 +36,9 @@ local options = {
     spelloptions = "camel", -- spellcheck configuration
     textwidth = 80, -- This is how long a line can be at max
     colorcolumn = "+1", -- This is where the border line will be drawn for the max line
+    winwidth = 10, -- Required for the windows plugin
+    winminwidth = 10, -- Required for the windows plugin
+    equalalways = false, -- Required for the windows plugin
 }
 
 vim.opt.shortmess:append "c"
