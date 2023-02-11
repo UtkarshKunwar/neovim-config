@@ -13,15 +13,29 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
-nvim_tree.setup {
-    disable_netrw = true,
-    hijack_netrw = true,
-    open_on_setup = false,
-    ignore_ft_on_setup = {
+
+local function open_nvim_tree(data)
+    local IGNORED_FT = {
         "startify",
         "dashboard",
         "alpha",
-    },
+    }
+
+    -- &ft
+    local filetype = vim.bo[data.buf].ft
+
+    -- skip ignored filetypes
+    if vim.tbl_contains(IGNORED_FT, filetype) then
+        return
+    end
+end
+
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
+nvim_tree.setup {
+    disable_netrw = true,
+    hijack_netrw = true,
     open_on_tab = true,
     hijack_cursor = false,
     update_cwd = true,
@@ -55,11 +69,11 @@ nvim_tree.setup {
         timeout = 500,
     },
     filters = {
-        custom = {"^\\.git"},
+        custom = { "^\\.git" },
     },
     actions = {
         open_file = {
-            window_picker = {enable = true},
+            window_picker = { enable = true },
             resize_window = true,
         },
         remove_file = {
@@ -74,10 +88,10 @@ nvim_tree.setup {
         mappings = {
             custom_only = false,
             list = {
-            { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-            { key = "h", cb = tree_cb "close_node" },
-            { key = "v", cb = tree_cb "vsplit" },
-            { key = "K", cb = tree_cb "toggle_file_info" },
+                { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+                { key = "h",                  cb = tree_cb "close_node" },
+                { key = "v",                  cb = tree_cb "vsplit" },
+                { key = "K",                  cb = tree_cb "toggle_file_info" },
             },
         },
         number = false,
@@ -121,7 +135,7 @@ nvim_tree.setup {
 -- nvim-tree is also there in modified buffers so this function filter it out
 local modifiedBufs = function(bufs)
     local t = 0
-    for _,v in pairs(bufs) do
+    for _, v in pairs(bufs) do
         if v.name:match("NvimTree_") == nil then
             t = t + 1
         end
@@ -133,8 +147,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
     nested = true,
     callback = function()
         if #vim.api.nvim_list_wins() == 1 and
-        vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil and
-        modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
+            vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil and
+            modifiedBufs(vim.fn.getbufinfo({ bufmodified = 1 })) == 0 then
             vim.cmd "quit"
         end
     end

@@ -78,6 +78,7 @@ return packer.startup(function(use)
     use "williamboman/mason-lspconfig.nvim" -- simple installation of LSPs
     use "hrsh7th/cmp-nvim-lsp" -- completion for nvim LSP
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+    use "jay-babu/mason-null-ls.nvim" -- to close the gaps between null-ls and mason
     use "RRethy/vim-illuminate" -- for hover usage highlighting
 
     -- Fuzzy file finder
