@@ -5,14 +5,13 @@ local servers = {
     "clangd", -- C/C++
     "dockerls", -- docker
     "groovyls", -- Jenkins
-    "ltex", -- LaTeX
     "taplo", -- ToML
     "vimls", -- Vim
     "html", -- HTML
     "jsonls", -- JSON
     "pyright", -- Python
     "rust_analyzer", -- Rust
-    "sumneko_lua", -- Lua
+    "lua_ls", -- Lua
     "tsserver", -- TypeScript
     "yamlls", -- YAML
     "marksman", -- MarkDown
@@ -58,6 +57,23 @@ for _, server in pairs(servers) do
     local require_ok, conf_opts = pcall(require, "plugins.lsp.settings." .. server)
     if require_ok then
         opts = vim.tbl_deep_extend("force", conf_opts, opts)
+    end
+
+    if server == "lua_ls" then
+        local lua_settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" },
+                },
+                workspace = {
+                    library = {
+                        [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                        [vim.fn.stdpath "config" .. "/lua"] = true,
+                    }
+                }
+            }
+        }
+        opts["settings"] = lua_settings
     end
 
     lspconfig[server].setup(opts)
