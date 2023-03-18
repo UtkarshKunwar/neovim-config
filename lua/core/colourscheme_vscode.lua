@@ -30,3 +30,4 @@ vscode.setup({
         ColorColumn = { fg=c.vscDarkBlue, bg="#2f2f2f", bold=false },
     }
 })
+vscode.load()
