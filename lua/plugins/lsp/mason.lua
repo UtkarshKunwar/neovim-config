@@ -4,7 +4,7 @@ local servers = {
     "cmake", -- cmake
     "clangd", -- C/C++
     "dockerls", -- docker
-    "groovyls", -- Jenkins
+    -- "groovyls", -- Jenkins
     "taplo", -- ToML
     "vimls", -- Vim
     "html", -- HTML

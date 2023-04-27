@@ -3,6 +3,13 @@ if not status_ok then
     return
 end
 
+local status_ok_install, install = pcall(require, "nvim-treesitter.install")
+if not status_ok_install then
+    return
+end
+
+install.prefer_git = true
+
 local status_ok_hlargs, _ = pcall(require, "hlargs")
 if not status_ok_hlargs then
     return
@@ -12,7 +19,15 @@ configs.setup {
     ensure_installed = "all", -- one of "all" or a list of languages
     sync_install = false, -- install languages asynchronously
     auto_install = true, -- installs missing parsers on opening file
-    ignore_install = { "" }, -- list of languages to ignore installing
+    ignore_install = {
+        "smali",
+        "fusion",
+        "blueprint",
+        "t32",
+        "jsonc",
+        "ruby",
+        "tlaplus",
+    }, -- list of languages to ignore installing
     highlight = {
         enable = true, -- false disables whole extension
         disable = { "" }, -- list of languages to be disabled for highlight
