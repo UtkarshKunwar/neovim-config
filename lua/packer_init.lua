@@ -53,37 +53,43 @@ packer.init {
 -- Install plugins
 return packer.startup(function(use)
     -- Add you plugins here:
-    use "wbthomason/packer.nvim" -- packer can manage itself
-    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use "wbthomason/packer.nvim"                       -- packer can manage itself
+    use "nvim-lua/popup.nvim"                          -- An implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim"                        -- Useful lua functions used ny lots of plugins
     use { "andymass/vim-matchup", event = "VimEnter" } -- Extend % support for matching keywords
-    use "flazz/vim-colorschemes" -- All the colorschemes
-    use "Mofiqul/vscode.nvim" -- Look like VSCode for the normies
+    use "flazz/vim-colorschemes"                       -- All the colorschemes
+    use "Mofiqul/vscode.nvim"                          -- Look like VSCode for the normies
 
     -- cmp plugins
-    use "hrsh7th/nvim-cmp" -- The completion plugin
-    use "hrsh7th/cmp-buffer" -- buffer completions
-    use "hrsh7th/cmp-path" -- path completions
-    use "hrsh7th/cmp-cmdline" -- cmdline completions
+    use "hrsh7th/nvim-cmp"         -- The completion plugin
+    use "hrsh7th/cmp-buffer"       -- buffer completions
+    use "hrsh7th/cmp-path"         -- path completions
+    use "hrsh7th/cmp-cmdline"      -- cmdline completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
-    use "hrsh7th/cmp-nvim-lua" -- completion for lua
+    use "hrsh7th/cmp-nvim-lua"     -- completion for lua
 
     -- snippets
-    use "L3MON4D3/LuaSnip" --snippet engine
+    use "L3MON4D3/LuaSnip"             --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
     -- LSP
-    use "neovim/nvim-lspconfig" -- enables LSP
-    use "williamboman/mason.nvim" -- simple installation of LSPs
+    use "neovim/nvim-lspconfig"             -- enables LSP
+    use "williamboman/mason.nvim"           -- simple installation of LSPs
     use "williamboman/mason-lspconfig.nvim" -- simple installation of LSPs
-    use "hrsh7th/cmp-nvim-lsp" -- completion for nvim LSP
-    use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-    use "jay-babu/mason-null-ls.nvim" -- to close the gaps between null-ls and mason
-    use "RRethy/vim-illuminate" -- for hover usage highlighting
+    use "hrsh7th/cmp-nvim-lsp"              -- completion for nvim LSP
+    use "jose-elias-alvarez/null-ls.nvim"   -- for formatters and linters
+    use "jay-babu/mason-null-ls.nvim"       -- to close the gaps between null-ls and mason
+    use "RRethy/vim-illuminate"             -- for hover usage highlighting
 
     -- Fuzzy file finder
     use "nvim-telescope/telescope.nvim"
     use "nvim-telescope/telescope-media-files.nvim"
+
+    -- Motion
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+    }
 
     -- TreeSitter
     use {
@@ -106,7 +112,7 @@ return packer.startup(function(use)
     use "windwp/nvim-autopairs" -- Automatically close brackets
 
     -- Commenting
-    use "numToStr/Comment.nvim" -- allows commenting
+    use "numToStr/Comment.nvim"                       -- allows commenting
     use "JoosepAlviste/nvim-ts-context-commentstring" -- Uses treesitter to get context for better commenting
 
     -- Gitgutter

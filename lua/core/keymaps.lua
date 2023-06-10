@@ -90,3 +90,6 @@ keymap("n", "<C-P>", "<cmd>lua require'telescope'.extensions.projects.projects()
 
 -- GitSigns --
 -- See lua/plugins/whichkey.lua
+
+-- Hop.NVIM
+keymap("n", "f", "<cmd>HopWord<CR>", opts)
