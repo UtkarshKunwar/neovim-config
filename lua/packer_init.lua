@@ -97,10 +97,10 @@ return packer.startup(function(use)
     }
 
     -- Markdown previewer
-    use {
-        'toppair/peek.nvim',
-        run = 'deno task --quiet build:fast'
-    }
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 
     -- Brackets
     use "windwp/nvim-autopairs" -- Automatically close brackets
