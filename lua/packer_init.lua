@@ -155,6 +155,12 @@ return packer.startup(function(use)
         },
     }
 
+    -- Document generator
+    use {
+        'kkoomen/vim-doge',
+        run = ':call doge#install({ "headless": 1 })'
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
