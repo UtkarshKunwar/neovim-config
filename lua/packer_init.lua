@@ -110,6 +110,7 @@ return packer.startup(function(use)
 
     -- Brackets
     use "windwp/nvim-autopairs" -- Automatically close brackets
+    use "kylechui/nvim-surround" -- Conveniently change brackets
 
     -- Commenting
     use "numToStr/Comment.nvim"                       -- allows commenting
