@@ -70,6 +70,9 @@ for _, server in pairs(servers) do
                         [vim.fn.expand "$VIMRUNTIME/lua"] = true,
                         [vim.fn.stdpath "config" .. "/lua"] = true,
                     }
+                },
+                format = {
+                    enable = false,
                 }
             }
         }
