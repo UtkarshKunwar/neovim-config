@@ -83,7 +83,7 @@ local mappings = {
         "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         "List Tabs",
     },
-    ["f"] = { "<cmd>:keepjumps NvimTreeToggle<CR>", "Toggle File Explorer" },
+    ["f"] = { "<cmd>:keepjumps NvimTreeFindFileToggle<CR>", "Toggle File Explorer" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["q"] = { "<cmd>BufDel<CR>", "Close Tab" },
 
