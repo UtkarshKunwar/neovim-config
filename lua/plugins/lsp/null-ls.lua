@@ -1,4 +1,11 @@
-local null_ls_status_ok, mason_null_ls = pcall(require, "mason-null-ls")
+require("plugins.lsp.mason")
+
+local mason_null_ls_status_ok, mason_null_ls = pcall(require, "mason-null-ls")
+if not mason_null_ls_status_ok then
+    return
+end
+
+local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
     return
 end
@@ -29,4 +36,8 @@ mason_null_ls.setup({
         -- Generic
         "codespell",
     },
+    automatic_setup = false,
+    handlers = {},
 })
+
+null_ls.setup()
