@@ -1,3 +1,5 @@
+vim.g.python3_host_prog = "~/.virtualenvs/neovim/bin/python3"
+
 require("packer_init")
 require("core.autocommands")
 require("core.options")
