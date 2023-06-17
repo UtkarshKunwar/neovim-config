@@ -162,6 +162,9 @@ return packer.startup(function(use)
         run = ':call doge#install({ "headless": 1 })'
     }
 
+    -- Don't accidentally open stuff in other buffers
+    use "stevearc/stickybuf.nvim"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
