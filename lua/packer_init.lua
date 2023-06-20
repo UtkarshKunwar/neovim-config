@@ -168,6 +168,9 @@ return packer.startup(function(use)
     -- Nice looking pop-ups
     use("stevearc/dressing.nvim")
 
+    -- Notifications
+    use("rcarriga/nvim-notify")
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
