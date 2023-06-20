@@ -164,6 +164,9 @@ return packer.startup(function(use)
     -- Don't accidentally open stuff in other buffers
     use("stevearc/stickybuf.nvim")
 
+    -- Nice looking pop-ups
+    use("stevearc/dressing.nvim")
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
