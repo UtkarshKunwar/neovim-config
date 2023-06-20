@@ -80,6 +80,7 @@ return packer.startup(function(use)
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
     use("jay-babu/mason-null-ls.nvim") -- to close the gaps between null-ls and mason
     use("RRethy/vim-illuminate") -- for hover usage highlighting
+    use("ray-x/lsp_signature.nvim") -- for improved signatures
 
     -- Fuzzy file finder
     use("nvim-telescope/telescope.nvim")
