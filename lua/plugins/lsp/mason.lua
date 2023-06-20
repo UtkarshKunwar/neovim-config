@@ -79,5 +79,12 @@ for _, server in pairs(servers) do
         opts["settings"] = lua_settings
     end
 
+    if server == "clangd" then
+        opts["cmd"] = {
+            "clangd",
+            "--offset-encoding=utf-16",
+        }
+    end
+
     lspconfig[server].setup(opts)
 end

@@ -51,7 +51,7 @@ M.setup = function()
     })
 end
 
-vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]]
+vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]])
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_buf_set_keymap

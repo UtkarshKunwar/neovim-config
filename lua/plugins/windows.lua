@@ -3,4 +3,13 @@ if not status_ok then
     return
 end
 
-windows.setup()
+-- windows.setup({
+--     autowidth = {
+--         enable = false,
+--         winwidth = 20,
+--     },
+--     ignore = {
+--         buftype = { "quickfix" },
+--         filetype = { "NvimTree", "neo-tree", "undotree", "gundo", "aerial" },
+--     },
+-- })

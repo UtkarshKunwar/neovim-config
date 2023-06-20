@@ -19,7 +19,6 @@ mason_null_ls.setup({
         "mypy",
         -- C/C++
         "clang_format",
-        "cpplint",
         "cpptools",
         -- Miscellaneous
         "fixjson",
