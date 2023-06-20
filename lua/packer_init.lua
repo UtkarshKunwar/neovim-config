@@ -155,15 +155,6 @@ return packer.startup(function(use)
     -- Which key to press for doing what
     use("folke/which-key.nvim")
 
-    -- Focus on current stuff only
-    use({
-        "anuvyklack/windows.nvim",
-        requires = {
-            "anuvyklack/middleclass",
-            "anuvyklack/animation.nvim",
-        },
-    })
-
     -- Document generator
     use({
         "kkoomen/vim-doge",
