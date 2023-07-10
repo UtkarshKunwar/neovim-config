@@ -41,6 +41,9 @@ nvim_tree.setup({
     update_focused_file = {
         enable = true,
     },
+    view = {
+        width = 25,
+    },
 })
 
 -- {{ Auto close functionality
