@@ -125,8 +125,8 @@ local mappings = {
             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
             "Workspace Symbols",
         },
-        g = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature"},
-        q = {"<cmd>lua vim.diagnostic.setloclist()<CR>", "Local List"},
+        g = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature" },
+        q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Local List" },
     },
     s = {
         name = "Search",
@@ -151,6 +151,7 @@ local mappings = {
     },
 
     ["v"] = { "<cmd>AerialToggle<CR>", "Symbols Outline" },
+    ["m"] = { require("plugins.markdown-preview").execute, "Markdown Preview Toggle" },
 }
 
 which_key.setup(setup)
