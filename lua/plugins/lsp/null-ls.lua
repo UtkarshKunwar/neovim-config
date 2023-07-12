@@ -17,6 +17,7 @@ mason_null_ls.setup({
         "isort",
         "flake8",
         "mypy",
+        "debugpy",
         -- C/C++
         "clang_format",
         "cpptools",

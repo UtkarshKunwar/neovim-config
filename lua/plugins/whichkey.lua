@@ -152,6 +152,31 @@ local mappings = {
 
     ["v"] = { "<cmd>AerialToggle<CR>", "Symbols Outline" },
     ["m"] = { require("plugins.markdown-preview").execute, "Markdown Preview Toggle" },
+
+    d = {
+        name = "Debugger",
+        d = { "<cmd>lua require('dapui').toggle()<CR>", "Show Debug Panel" },
+
+        E = { "<cmd>lua require('dapui').eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
+        C = { "<cmd>lua require('dap').set_breakpoint(vim.fn.input '[Condition] > ')<cr>", "Conditional Breakpoint" },
+        H = { "<cmd>lua require('dap').step_back()<cr>", "Step Back" },
+        c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
+        r = { "<cmd>lua require('dap').continue()<cr>", "Run" },
+        K = { "<cmd>lua require('dap.ui.widgets').hover()<cr>", "Hover Variables" },
+        S = { "<cmd>lua require('dap.ui.widgets').scopes()<cr>", "Scopes" },
+        s = { "<cmd>lua require('dap').step_into()<cr>", "Step Into" },
+        n = { "<cmd>lua require('dap').step_over()<cr>", "Step Over" },
+        q = { "<cmd>lua require('dap').close()<cr>", "Quit" },
+        b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+        x = { "<cmd>lua require('dap').terminate()<cr>", "Terminate" },
+        f = { "<cmd>lua require('dap').step_out()<cr>", "Step Out" },
+        -- Python
+        p = {
+            name = "Python",
+            m = { "<cmd>lua require('dap-python').test_method()<CR><ESC>l", "Test method" },
+            c = { "<cmd>lua require('dap-python').test_class()<CR><ESC>l", "Test class" },
+        },
+    },
 }
 
 which_key.setup(setup)

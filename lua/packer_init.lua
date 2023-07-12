@@ -171,6 +171,12 @@ return packer.startup(function(use)
     -- Notifications
     use("rcarriga/nvim-notify")
 
+    -- Debugger
+    use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+    use("mfussenegger/nvim-dap-python")
+    use("theHamsta/nvim-dap-virtual-text")
+    use("nvim-telescope/telescope-dap.nvim")
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
