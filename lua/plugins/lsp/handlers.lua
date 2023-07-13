@@ -11,7 +11,6 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
     local signs = {
-
         { name = "DiagnosticSignError", text = "" },
         { name = "DiagnosticSignWarn", text = "" },
         { name = "DiagnosticSignHint", text = "" },
@@ -69,9 +68,16 @@ local function lsp_keymaps(bufnr)
     keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
+local formatter_blacklist = {
+    "tsserver",
+}
+
 M.on_attach = function(client, bufnr)
-    if client.name == "tsserver" then
-        client.server_capabilities.documentFormattingProvider = false
+    for _, blacklist in ipairs(formatter_blacklist) do
+        if client.name == blacklist then
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+        end
     end
 
     lsp_keymaps(bufnr)

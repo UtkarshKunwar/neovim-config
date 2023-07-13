@@ -15,6 +15,8 @@ local servers = {
     "tsserver", -- TypeScript
     "yamlls", -- YAML
     "marksman", -- MarkDown
+    "debugpy", -- Python
+    "cpptools", -- C/C++
 }
 
 local settings = {
