@@ -97,7 +97,7 @@ return packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     })
-    use("p00f/nvim-ts-rainbow")
+    use("hiphish/rainbow-delimiters.nvim")
     use({
         "m-demare/hlargs.nvim",
         requires = { "nvim-treesitter/nvim-treesitter" },
