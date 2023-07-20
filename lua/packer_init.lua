@@ -76,6 +76,7 @@ return packer.startup(function(use)
     use("neovim/nvim-lspconfig") -- enables LSP
     use("williamboman/mason.nvim") -- simple installation of LSPs
     use("williamboman/mason-lspconfig.nvim") -- simple installation of LSPs
+    use("WhoIsSethDaniel/mason-tool-installer.nvim") -- Automatically install mason stuff
     use("hrsh7th/cmp-nvim-lsp") -- completion for nvim LSP
     use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
     use("jay-babu/mason-null-ls.nvim") -- to close the gaps between null-ls and mason

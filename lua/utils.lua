@@ -1,5 +1,6 @@
 local M = {}
 M.table = {}
+M.list = {}
 
 M.table.deepcopy = function(original_table)
     local orig_type = type(original_table)
@@ -14,6 +15,28 @@ M.table.deepcopy = function(original_table)
         copy = original_table
     end
     return copy
+end
+
+M.table.concat = function(table1, table2)
+    local table = {}
+    for k, v in pairs(table1) do
+        table[k] = v
+    end
+    for k, v in pairs(table2) do
+        table[k] = v
+    end
+    return table
+end
+
+M.list.concat = function(list1, list2)
+    local list = {}
+    for _, v in ipairs(list1) do
+        table.insert(list, v)
+    end
+    for _, v in ipairs(list2) do
+        table.insert(list, v)
+    end
+    return list
 end
 
 return M

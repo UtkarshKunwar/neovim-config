@@ -1,3 +1,23 @@
+local status_ok, mason = pcall(require, "mason")
+if not status_ok then
+    return
+end
+
+local mason_lsp_config_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lsp_config_status_ok then
+    return
+end
+
+local installer_status_ok, mason_installer = pcall(require, "mason-tool-installer")
+if not installer_status_ok then
+    return
+end
+
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+    return
+end
+
 local servers = {
     "awk_ls", -- awk
     "bashls", -- bash
@@ -15,8 +35,6 @@ local servers = {
     "tsserver", -- TypeScript
     "yamlls", -- YAML
     "marksman", -- MarkDown
-    "debugpy", -- Python
-    "cpptools", -- C/C++
 }
 
 local settings = {
@@ -35,16 +53,23 @@ local settings = {
     }
 }
 
-require("mason").setup(settings)
-require("mason-lspconfig").setup({
+mason.setup(settings)
+mason_lspconfig.setup({
     ensure_installed = servers,
     automatic_installation = true,
 })
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-    return
-end
+local non_lsp_servers = {
+    "debugpy", -- Python
+    "cpptools", -- C/C++
+}
+
+local mason_servers = require("utils").list.concat(servers, non_lsp_servers)
+
+mason_installer.setup({
+    ensure_installed = mason_servers,
+    start_delay = 3000, -- 3 seconds
+})
 
 local opts = {}
 
