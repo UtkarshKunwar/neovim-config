@@ -30,8 +30,6 @@ null_ls.setup({
         actions.gitsigns,
         actions.shellcheck,
 
-        completion.luasnip,
-
         diagnostics.codespell,
         diagnostics.gitlint,
         diagnostics.hadolint,
