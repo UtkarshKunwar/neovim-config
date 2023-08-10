@@ -132,6 +132,7 @@ return packer.startup(function(use)
     -- BufferLine
     use("akinsho/bufferline.nvim")
     use("ojroques/nvim-bufdel")
+    use("SmiteshP/nvim-navic")
 
     -- LuaLine
     use("nvim-lualine/lualine.nvim")

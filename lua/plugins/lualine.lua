@@ -21,7 +21,7 @@ local diff = {
     "diff",
     colored = false,
     symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-    cond = hide_in_width
+    cond = hide_in_width,
 }
 
 local filetype = {
@@ -72,6 +72,24 @@ lualine.setup({
         lualine_b = {},
         lualine_c = { "filename" },
         lualine_x = { "location" },
+        lualine_y = {},
+        lualine_z = {},
+    },
+    winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
+            {
+                "navic",
+                color_correction = nil,
+                navic_opts = nil,
+                padding = 6,
+                on_click = nil,
+                draw_empty = true,
+                color = "Normal",
+            },
+        },
+        lualine_x = {},
         lualine_y = {},
         lualine_z = {},
     },
