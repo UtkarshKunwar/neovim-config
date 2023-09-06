@@ -6,17 +6,10 @@ if not status_ok then
     return
 end
 
-local config_status_ok, _ = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-    return
-end
-
 local autogen_status_ok, autogen = pcall(require, "plugins.nvim-tree.nvim-tree-on-attach")
 if not autogen_status_ok then
     return
 end
-
--- local tree_cb = nvim_tree_config.nvim_tree_callback
 
 local function open_nvim_tree(data)
     local IGNORED_FT = {
