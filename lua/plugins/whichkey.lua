@@ -84,7 +84,7 @@ local mappings = {
         "List Tabs",
     },
     ["f"] = { "<cmd>:keepjumps NvimTreeFindFileToggle<CR>", "Toggle File Explorer" },
-    ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+    ["h"] = { ":nohl<CR>", "No Highlight" },
     ["q"] = { "<cmd>BufDel<CR>", "Close Tab" },
 
     g = {
