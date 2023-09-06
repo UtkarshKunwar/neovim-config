@@ -182,6 +182,9 @@ return packer.startup(function(use)
     -- All 'bout dat colour code vizz
     use("norcalli/nvim-colorizer.lua")
 
+    -- Scrollbar
+    use({ "petertriho/nvim-scrollbar", requires = { "kevinhwang91/nvim-hlslens" } })
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

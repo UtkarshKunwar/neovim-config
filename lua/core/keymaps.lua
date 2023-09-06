@@ -52,7 +52,12 @@ keymap("n", "<C-Tab>", ":bnext<CR>", opts)
 keymap("n", "<C-S-Tab>", ":bprevious<CR>", opts)
 
 vim.opt.wildcharm = ("\t"):byte()
-keymap("n", "<Leader><Tab>", "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>", opts)
+keymap(
+    "n",
+    "<Leader><Tab>",
+    "<cmd>lua require'telescope.builtin'.buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>",
+    opts
+)
 
 -- Insert --
 -- Press jk fast to enter
@@ -94,3 +99,11 @@ keymap("n", "<C-P>", "<cmd>lua require'telescope'.extensions.projects.projects()
 
 -- Hop.NVIM
 keymap("n", "f", "<cmd>HopWord<CR>", opts)
+
+-- nvim-hlslens
+keymap("n", "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap("n", "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], opts)
+keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
