@@ -81,6 +81,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Plugins --
 -- Telescope --
+keymap("n", "<C-h>", "<cmd>lua require'telescope.builtin'.find_files({hidden=true})<CR>", opts)
 keymap("n", "<C-f>", "<cmd>lua require'telescope.builtin'.find_files()<CR>", opts)
 keymap("n", "<C-A-f>", "<cmd>lua require'telescope.builtin'.live_grep()<CR>", opts)
 keymap("n", "<C-P>", "<cmd>lua require'telescope'.extensions.projects.projects()<CR>", opts)
