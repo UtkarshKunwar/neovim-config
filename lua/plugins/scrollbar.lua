@@ -1,4 +1,4 @@
-require("plugins.gitsigns")
+require("plugins.git.gitsigns")
 
 local status_ok_scrollbar, scrollbar = pcall(require, "scrollbar")
 if not status_ok_scrollbar then

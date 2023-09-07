@@ -120,8 +120,9 @@ return packer.startup(function(use)
     use("numToStr/Comment.nvim") -- allows commenting
     use("JoosepAlviste/nvim-ts-context-commentstring") -- Uses treesitter to get context for better commenting
 
-    -- Gitgutter
+    -- Git
     use("lewis6991/gitsigns.nvim")
+    use("f-person/git-blame.nvim")
 
     -- File Tree Plugin
     use("nvim-tree/nvim-tree.lua")
