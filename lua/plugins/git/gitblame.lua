@@ -7,6 +7,7 @@ vim.api.nvim_command("highlight GitBlameHL guibg=#2f2f2f guifg=#777777")
 gitblame.setup({
     message_template = "  <author> (<sha>, <date>): <summary>",
     highlight_group = "GitBlameHL",
+    date_format = "%b%d'%y %H:%M",
     delay = 0,
     virtual_text_column = 60,
 })
