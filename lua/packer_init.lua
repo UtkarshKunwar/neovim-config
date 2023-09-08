@@ -142,7 +142,7 @@ return packer.startup(function(use)
     use("stevearc/aerial.nvim")
 
     -- ToggleTerm
-    use("akinsho/toggleterm.nvim")
+    use({"akinsho/toggleterm.nvim", tag = "v2.7.1"})
 
     -- Projects
     use("ahmedkhalf/project.nvim")
