@@ -46,6 +46,16 @@ local progress = {
     padding = 2,
 }
 
+local navic = {
+    "navic",
+    color_correction = nil,
+    navic_opts = nil,
+    padding = 6,
+    on_click = nil,
+    draw_empty = true,
+    color = "Normal",
+}
+
 local spaces = function()
     return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
@@ -57,6 +67,7 @@ lualine.setup({
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+        ignore_focus = { "toggleterm" },
         always_divide_middle = true,
     },
     sections = {
@@ -78,17 +89,7 @@ lualine.setup({
     winbar = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {
-            {
-                "navic",
-                color_correction = nil,
-                navic_opts = nil,
-                padding = 6,
-                on_click = nil,
-                draw_empty = true,
-                color = "Normal",
-            },
-        },
+        lualine_c = { navic },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},
