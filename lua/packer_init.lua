@@ -92,6 +92,7 @@ return packer.startup(function(use)
         "phaazon/hop.nvim",
         branch = "v2", -- optional but strongly recommended
     })
+    use("karb94/neoscroll.nvim")
 
     -- TreeSitter
     use({
@@ -142,7 +143,7 @@ return packer.startup(function(use)
     use("stevearc/aerial.nvim")
 
     -- ToggleTerm
-    use({"akinsho/toggleterm.nvim", tag = "v2.7.1"})
+    use({ "akinsho/toggleterm.nvim", tag = "v2.7.1" })
 
     -- Projects
     use("ahmedkhalf/project.nvim")
