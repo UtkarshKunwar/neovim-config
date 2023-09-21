@@ -187,15 +187,6 @@ return packer.startup(function(use)
     -- Scrollbar
     use({ "petertriho/nvim-scrollbar", requires = { "kevinhwang91/nvim-hlslens" } })
 
-    -- Confirm on quit.
-    use({
-        "yutkat/confirm-quit.nvim",
-        event = "CmdlineEnter",
-        config = function()
-            require("confirm-quit").setup()
-        end,
-    })
-
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
