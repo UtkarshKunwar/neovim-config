@@ -10,7 +10,7 @@ end
 
 bufdel.setup({
     next = "tabs",
-    quit = "false",
+    quit = false,
 })
 
 bufferline.setup({
