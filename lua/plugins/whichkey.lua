@@ -85,7 +85,7 @@ local mappings = {
     },
     ["f"] = { "<cmd>:keepjumps NvimTreeFindFileToggle<CR>", "Toggle File Explorer" },
     ["h"] = { ":nohl<CR>", "No Highlight" },
-    ["q"] = { "<cmd>BufDel<CR>", "Close Tab" },
+    ["q"] = { "<cmd>lua SmartQuit()<CR>", "Close Tab" },
 
     g = {
         name = "Git",
