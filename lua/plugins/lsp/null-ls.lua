@@ -13,7 +13,6 @@ end
 local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
 local actions = null_ls.builtins.code_actions
-local completion = null_ls.builtins.completion
 
 null_ls.setup({
     sources = {
@@ -45,6 +44,9 @@ null_ls.setup({
         formatting.stylua,
         formatting.yamlfmt,
     },
+    on_attach = function (client, bufnr)
+        vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
+    end
 })
 
 mason_null_ls.setup({
