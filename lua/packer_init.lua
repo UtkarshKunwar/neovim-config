@@ -200,6 +200,9 @@ return packer.startup(function(use)
         commit = "35f99d559041c7c0eff3a41f9093581ceea534e8",
     })
 
+    -- Virtual environment
+    use("linux-cultist/venv-selector.nvim")
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
