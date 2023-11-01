@@ -15,9 +15,9 @@ local diagnostics = {
     colored = false,
     update_in_insert = false,
     always_visible = true,
-    on_click = function ()
+    on_click = function()
         vim.api.nvim_command("Telescope diagnostics bufnr=0 theme=ivy")
-    end
+    end,
 }
 
 local diff = {
@@ -37,9 +37,9 @@ local branch = {
     "branch",
     icons_enabled = true,
     icon = "",
-    on_click = function ()
+    on_click = function()
         vim.api.nvim_command("Telescope git_branches theme=ivy")
-    end
+    end,
 }
 
 local location = {
@@ -66,6 +66,22 @@ local spaces = function()
     return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
+local actived_venv = function()
+    local venv_name = require("venv-selector").get_active_venv()
+    if venv_name ~= nil then
+        return string.gsub(venv_name, ".*virtualenvs/", " ")
+    else
+        return ""
+    end
+end
+
+local venv = {
+    actived_venv,
+    on_click = function ()
+        vim.api.nvim_command("VenvSelect")
+    end
+}
+
 lualine.setup({
     options = {
         icons_enabled = true,
@@ -78,7 +94,7 @@ lualine.setup({
     },
     sections = {
         lualine_a = { "mode" },
-        lualine_b = { branch, diagnostics },
+        lualine_b = { branch, diagnostics, venv },
         lualine_c = {},
         lualine_x = { diff, spaces, "encoding", filetype },
         lualine_y = { location },
