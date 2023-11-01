@@ -15,6 +15,9 @@ local diagnostics = {
     colored = false,
     update_in_insert = false,
     always_visible = true,
+    on_click = function ()
+        vim.api.nvim_command("Telescope diagnostics bufnr=0 theme=ivy")
+    end
 }
 
 local diff = {
@@ -34,6 +37,9 @@ local branch = {
     "branch",
     icons_enabled = true,
     icon = "",
+    on_click = function ()
+        vim.api.nvim_command("Telescope git_branches theme=ivy")
+    end
 }
 
 local location = {

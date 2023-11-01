@@ -42,6 +42,10 @@ telescope.setup {
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+
+        ["<LeftMouse>"] = actions.select_default, -- Single click to select and preview
+        ["<ScrollWheelDown>"] = actions.move_selection_next,
+        ["<ScrollWheelUp>"] = actions.move_selection_previous,
       },
 
       n = {
@@ -74,6 +78,10 @@ telescope.setup {
         ["<PageDown>"] = actions.results_scrolling_down,
 
         ["?"] = actions.which_key,
+
+        ["<LeftMouse>"] = actions.select_default, -- Single click to select and preview
+        ["<ScrollWheelDown>"] = actions.move_selection_next,
+        ["<ScrollWheelUp>"] = actions.move_selection_previous,
       },
     },
   },
