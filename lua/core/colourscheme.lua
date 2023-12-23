@@ -9,7 +9,7 @@ catppuccin.setup({
         cmp = true,
         gitsigns = true,
         nvimtree = true,
-        hop = true,
+        hop = false,
         treesitter = true,
         treesitter_context = true,
         which_key = false,
