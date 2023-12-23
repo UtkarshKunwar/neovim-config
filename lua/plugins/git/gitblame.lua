@@ -5,8 +5,8 @@ end
 
 -- if entering visual mode, change highlight by making it dimmer. Else in normal mode,
 -- where the cursorline gets rendered, make it to match the highlight of the cursorline.
-vim.api.nvim_command("highlight gitblame_normal guibg=#2f2f2f guifg=#777777")
-vim.api.nvim_command("highlight gitblame_visual guibg=#1e1e1e guifg=#666666")
+vim.api.nvim_command("highlight gitblame_normal guibg=#2a2b3c guifg=#6c7086")
+vim.api.nvim_command("highlight gitblame_visual guibg=#45475a guifg=#6c7086")
 vim.cmd([[
   augroup VisualEvent
     autocmd!

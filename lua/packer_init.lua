@@ -59,6 +59,7 @@ return packer.startup(function(use)
     use({ "andymass/vim-matchup", event = "VimEnter", commit = "6dbe108230c7dbbf00555b7d4d9f6a891837ef07" }) -- Extend % support for matching keywords
     use({ "flazz/vim-colorschemes", commit = "fd8f122cef604330c96a6a6e434682dbdfb878c9" }) -- All the colorschemes
     use({ "Mofiqul/vscode.nvim", commit = "11b212096a0b2056fc8acaf31c0d62d656b6fd2d" }) -- Look like VSCode for the normies
+    use({ "catppuccin/nvim", as = "catppuccin", commit = "4fbab1f01488718c3d54034a473d0346346b90e3" })
 
     -- cmp plugins
     use({ "hrsh7th/nvim-cmp", commit = "5dce1b778b85c717f6614e3f4da45e9f19f54435" }) -- The completion plugin

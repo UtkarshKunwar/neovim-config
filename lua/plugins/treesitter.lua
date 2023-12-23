@@ -45,11 +45,6 @@ configs.setup({
     },
 })
 
--- VSCode-like colors
-vim.api.nvim_command("highlight RainbowDelimiterOrange guifg=#E8C400 gui=nocombine")
-vim.api.nvim_command("highlight RainbowDelimiterPink guifg=#DA70D6 gui=nocombine")
-vim.api.nvim_command("highlight RainbowDelimiterBlue guifg=#179FFF gui=nocombine")
-
 -- Not using setup() call because of additional overhead according to the documentation.
 vim.g.rainbow_delimiters = {
     strategy = {
@@ -59,12 +54,6 @@ vim.g.rainbow_delimiters = {
     query = {
         [""] = "rainbow-delimiters",
         lua = "rainbow-blocks",
-    },
-    highlight = {
-        "RainbowDelimiterOrange",
-        "RainbowDelimiterPink",
-        "RainbowDelimiterBlue",
-        "RainbowDelimiterViolet",
     },
     -- blacklist = { "c", "cpp" }, -- add blacklisted languages here
 }

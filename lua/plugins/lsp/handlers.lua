@@ -10,7 +10,6 @@ if not status_navic_ok then
     return
 end
 
-require("plugins.lsp.navic-hl")
 navic.setup({
     icons = require("plugins.icons"),
     separator = "  ",
