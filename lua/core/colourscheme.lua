@@ -46,4 +46,6 @@ catppuccin.setup({
     },
 })
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")
+
+vim.cmd([[highlight! Visual guibg=#505783 gui=nocombine]])
