@@ -97,7 +97,13 @@ local mappings = {
         o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-        d = { "<cmd>lua require'gitsigns'.diffthis()<CR>", "Diff" },
+        d = {
+            function()
+                vim.cmd("split | wincmd T | lua require'gitsigns'.diffthis()")
+                vim.cmd("wincmd h")
+            end,
+            "Diff",
+        },
     },
 
     l = {
