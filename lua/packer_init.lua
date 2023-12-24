@@ -127,7 +127,7 @@ return packer.startup(function(use)
 
     -- Git
     use({ "lewis6991/gitsigns.nvim", commit = "bce4576a9047085a528c479a7fe1e2f6b787b6c1" })
-    use({ "f-person/git-blame.nvim", commit = "a36b277e527f9d34efe16c3636555ce0e0c0464c" })
+    use({ "f-person/git-blame.nvim", commit = "f07e913b7143f19edd6787229f2d51759b478600" })
 
     -- File Tree Plugin
     use({ "nvim-tree/nvim-tree.lua", commit = "a3aa3b47eac8b6289f028743bef4ce9eb0f6782e" })
