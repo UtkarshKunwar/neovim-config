@@ -1,5 +1,5 @@
 -- Blacklisted file types for always quitting if encountering these
-local always_quit_filetypes = { "qf" }
+local always_quit_filetypes = { "qf", "notify", "NvimTree" }
 
 local utils = require("utils")
 
@@ -9,15 +9,33 @@ function SmartQuit(force)
     print("") -- empty to clear command line
     local n_listed_buffers = #vim.fn.getbufinfo({ buflisted = true })
     local is_current_buffer_hidden = not vim.bo[0].buflisted
-    local current_buf_ft = vim.api.nvim_buf_get_option(vim.fn.bufnr("%"), "filetype")
+
+    local current_buf = vim.fn.bufnr("%")
+    local current_buf_ft = vim.api.nvim_buf_get_option(current_buf, "filetype")
     local is_blacklisted_ft = utils.list.find(always_quit_filetypes, current_buf_ft)
-    local is_window = #vim.api.nvim_list_wins() > 1
+
+    -- Count actual number of windows with relevant filetype
+    -- https://www.reddit.com/r/neovim/comments/thynt9/what_api_to_get_the_current_count_of_windows/
+    local windows = vim.api.nvim_tabpage_list_wins(0)
+    local relevant_windows = 0
+    for _, v in pairs(windows) do
+        local cfg = vim.api.nvim_win_get_config(v)
+        local ft = vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(v), "filetype")
+        if (cfg.relative == "" or cfg.external == false) and not utils.list.find(always_quit_filetypes, ft) then
+            relevant_windows = relevant_windows + 1
+        end
+    end
+    local is_window = relevant_windows > 1
 
     if is_current_buffer_hidden or is_blacklisted_ft or (is_window and n_listed_buffers == 1) or force then
         local quit_cmd = force and "q!" or "q"
         vim.cmd(quit_cmd)
+        -- Check if quitted buffer still exists after quitting. If yes then clean up
+        if vim.fn.bufexists(current_buf) == 1 then
+            vim.cmd("BufDel "..current_buf)
+        end
     elseif n_listed_buffers > 1 then
-        vim.cmd("BufDel")
+        vim.cmd("BufDel "..current_buf)
     else
         -- Prompt the user for input
         vim.ui.select({ "Yes", "No" }, { prompt = "Do you really want to quit?" }, function(selected)
