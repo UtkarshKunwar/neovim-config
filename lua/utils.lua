@@ -39,4 +39,13 @@ M.list.concat = function(list1, list2)
     return list
 end
 
+M.list.find = function(list1, value)
+    for _, v in pairs(list1) do
+        if v == value then
+            return true
+        end
+    end
+    return false
+end
+
 return M
