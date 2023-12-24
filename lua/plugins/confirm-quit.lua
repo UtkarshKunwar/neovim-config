@@ -1,12 +1,19 @@
+-- Blacklisted file types for always quitting if encountering these
+local always_quit_filetypes = { "qf" }
+
+local utils = require("utils")
+
 -- Define a custom function to run instead of :q
 --- @param force boolean: force quit or not
 function SmartQuit(force)
     print("") -- empty to clear command line
     local n_listed_buffers = #vim.fn.getbufinfo({ buflisted = true })
     local is_current_buffer_hidden = not vim.bo[0].buflisted
+    local current_buf_ft = vim.api.nvim_buf_get_option(vim.fn.bufnr("%"), "filetype")
+    local is_blacklisted_ft = utils.list.find(always_quit_filetypes, current_buf_ft)
     local is_window = #vim.api.nvim_list_wins() > 1
 
-    if is_current_buffer_hidden or (is_window and n_listed_buffers == 1) or force then
+    if is_current_buffer_hidden or is_blacklisted_ft or (is_window and n_listed_buffers == 1) or force then
         local quit_cmd = force and "q!" or "q"
         vim.cmd(quit_cmd)
     elseif n_listed_buffers > 1 then
