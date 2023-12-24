@@ -16,6 +16,7 @@ local function open_nvim_tree(data)
         "startify",
         "dashboard",
         "alpha",
+        "notify",
     }
 
     -- &ft
