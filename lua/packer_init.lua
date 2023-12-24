@@ -137,6 +137,7 @@ return packer.startup(function(use)
 
     -- BufferLine
     use({ "akinsho/bufferline.nvim", tag = "v4.4.0" })
+    use({ "tiagovla/scope.nvim", commit = "cd27af77ad61a7199af5c28d27013fb956eb0e3e" })
     use({ "ojroques/nvim-bufdel", commit = "96c4f7ab053ddab0025bebe5f7c71e4795430e47" })
     use({ "SmiteshP/nvim-navic", commit = "0ffa7ffe6588f3417e680439872f5049e38a24db" })
 

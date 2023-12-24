@@ -13,17 +13,17 @@ bufdel.setup({
     quit = false,
 })
 
-local palette_status_ok, palette = pcall(require, "catppuccin.palettes")
-if not palette_status_ok then
-    return
-end
-
 local integration_status_ok, catppuccin_integration = pcall(require, "catppuccin.groups.integrations.bufferline")
 if not integration_status_ok then
     return
 end
 
-local mocha = palette.get_palette("mocha")
+local scoped_buf_status_ok, scoped_buf = pcall(require, "scope")
+if not scoped_buf_status_ok then
+    return
+end
+
+scoped_buf.setup()
 
 bufferline.setup({
     options = {
