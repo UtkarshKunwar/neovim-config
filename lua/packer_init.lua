@@ -172,9 +172,6 @@ return packer.startup(function(use)
         commit = "d4ead080f9c45bda760f85f4c34620255094dff5",
     })
 
-    -- Don't accidentally open stuff in other buffers
-    use({ "stevearc/stickybuf.nvim", tag = "stable" })
-
     -- Nice looking pop-ups
     use({ "stevearc/dressing.nvim", commit = "c1e1d5fa44fe08811b6ef4aadac2b50e602f9504" })
 
