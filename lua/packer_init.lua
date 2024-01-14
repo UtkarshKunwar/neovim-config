@@ -215,6 +215,9 @@ return packer.startup(function(use)
     -- LLM
     use({ "David-Kunz/gen.nvim", commit = "41ad952c8269fa7aa3a4b8a5abb44541cb628313" })
 
+    -- Zen Mode
+    use({ "folke/zen-mode.nvim", commit = "50e2e2a36cc97847d9ab3b1a3555ba2ef6839b50" })
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
