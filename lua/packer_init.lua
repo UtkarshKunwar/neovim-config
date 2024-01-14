@@ -70,7 +70,7 @@ return packer.startup(function(use)
     use({ "hrsh7th/cmp-nvim-lua", commit = "f12408bdb54c39c23e67cab726264c10db33ada8" }) -- completion for lua
 
     -- snippets
-    use({ "L3MON4D3/LuaSnip", commit = "c5fb16a934892086d4ba01bac48b77c65435025e" }) --snippet engine
+    use({ "L3MON4D3/LuaSnip", commit = "82108e7e31cc6fc223cc5df5cae6d89f70bb199f", run = "make install_jsregexp" }) --snippet engine
     use({ "rafamadriz/friendly-snippets", commit = "ebf6d6e83494cdd88a54a429340256f4dbb6a052" }) -- a bunch of snippets to use
 
     -- LSP
