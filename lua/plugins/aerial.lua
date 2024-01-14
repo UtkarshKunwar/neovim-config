@@ -5,20 +5,20 @@ end
 
 local icons_status_ok, icons = pcall(require, "plugins.icons")
 if not icons_status_ok then
-  return
+    return
 end
 
 local function get_keys(t)
-  local keys={}
-  for key,_ in pairs(t) do
-    table.insert(keys, tostring(key))
-  end
-  return keys
+    local keys = {}
+    for key, _ in pairs(t) do
+        table.insert(keys, tostring(key))
+    end
+    return keys
 end
 
 aerial.setup({
     default_direction = "right",
-    max_width = { 40, 0.2},
+    max_width = { 40, 0.2 },
     width = nil,
     min_width = 20,
     show_guides = true,
@@ -34,4 +34,7 @@ aerial.setup({
     },
     icons = icons,
     filter_kind = get_keys(icons),
+    resize_to_content = false,
+    highlight_on_hover = true,
+    autojump = true,
 })
