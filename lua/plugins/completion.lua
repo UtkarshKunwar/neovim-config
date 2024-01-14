@@ -108,7 +108,8 @@ cmp.setup({
                 luasnip = "[Snippet]",
                 buffer = "[Buffer]",
                 path = "[Path]",
-                git = "[GIT]"
+                emoji = "[Emoji]",
+                git = "[GIT]",
             })[entry.source.name]
             return vim_item
         end,
@@ -120,6 +121,7 @@ cmp.setup({
         { name = "buffer" },
         { name = "path" },
         { name = "calc" },
+        { name = "emoji", option = { insert = true } },
         { name = "git" },
     },
     confirm_opts = {
@@ -193,5 +195,18 @@ cmp_git.setup({
                 return sources.github:get_mentions(callback, git_info, trigger_char)
             end,
         },
+    },
+})
+
+cmp.setup.filetype("markdown", {
+    sources = {
+        { name = "nvim_lsp" },
+        { name = "nvim_lua" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
+        { name = "calc" },
+        { name = "emoji", option = { insert = false } }, -- we want full text in .md
+        { name = "git" },
     },
 })

@@ -74,6 +74,10 @@ return packer.startup(function(use)
         requires = "nvim-lua/plenary.nvim",
         commit = "8d8993680d627c8f13bd85094eba84604107dbdd",
     })
+    use({
+        "UtkarshKunwar/cmp-emoji",
+        commit = "dbe10a6114e2ac5dfc164bbc8e8d34c70a2deefc",
+    })
 
     -- snippets
     use({ "L3MON4D3/LuaSnip", commit = "82108e7e31cc6fc223cc5df5cae6d89f70bb199f", run = "make install_jsregexp" }) --snippet engine
