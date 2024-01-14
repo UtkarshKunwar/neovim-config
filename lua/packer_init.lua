@@ -217,6 +217,7 @@ return packer.startup(function(use)
 
     -- Zen Mode
     use({ "folke/zen-mode.nvim", commit = "50e2e2a36cc97847d9ab3b1a3555ba2ef6839b50" })
+    use({ "folke/twilight.nvim", commit = "8b7b50c0cb2dc781b2f4262a5ddd57571556d1e4" })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
