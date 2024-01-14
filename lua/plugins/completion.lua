@@ -8,6 +8,13 @@ if not snip_status_ok then
     return
 end
 
+local git_status_ok, cmp_git = pcall(require, "cmp_git")
+if not git_status_ok then
+    return
+end
+local format = require("cmp_git.format")
+local sort = require("cmp_git.sort")
+
 local icons_status_ok, icons = pcall(require, "plugins.icons")
 if not icons_status_ok then
     return
@@ -112,6 +119,7 @@ cmp.setup({
         { name = "buffer" },
         { name = "path" },
         { name = "calc" },
+        { name = "git" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
@@ -123,5 +131,43 @@ cmp.setup({
     experimental = {
         ghost_text = true,
         native_menu = false,
+    },
+})
+
+cmp_git.setup({
+    -- defaults
+    filetypes = { "gitcommit", "octo" },
+    remotes = { "upstream", "origin" }, -- in order of most to least prioritized
+    enableRemoteUrlRewrites = false, -- enable git url rewrites, see
+    -- https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf
+    git = {
+        commits = {
+            limit = 100,
+            sort_by = sort.git.commits,
+            format = format.git.commits,
+        },
+    },
+    github = {
+        hosts = {}, -- list of private instances of github
+        issues = {
+            fields = { "title", "number", "body", "updatedAt", "state" },
+            filter = "all", -- assigned, created, mentioned, subscribed, all, repos
+            limit = 100,
+            state = "open", -- open, closed, all
+            sort_by = sort.github.issues,
+            format = format.github.issues,
+        },
+        mentions = {
+            limit = 100,
+            sort_by = sort.github.mentions,
+            format = format.github.mentions,
+        },
+        pull_requests = {
+            fields = { "title", "number", "body", "updatedAt", "state" },
+            limit = 100,
+            state = "open", -- open, closed, merged, all
+            sort_by = sort.github.pull_requests,
+            format = format.github.pull_requests,
+        },
     },
 })
