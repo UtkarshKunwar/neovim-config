@@ -62,6 +62,7 @@ keymap(
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
+keymap("i", "<S-Del>", "<BS>", opts)
 
 -- Visual --
 -- Stay in indent mode
