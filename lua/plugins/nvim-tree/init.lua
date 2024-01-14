@@ -34,6 +34,7 @@ nvim_tree.setup({
     on_attach = autogen.on_attach,
     update_focused_file = {
         enable = true,
+        update_root = true,
     },
     view = {
         width = 25,
