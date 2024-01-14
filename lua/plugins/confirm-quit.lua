@@ -27,15 +27,15 @@ function SmartQuit(force)
     end
     local is_window = relevant_windows > 1
 
-    if is_current_buffer_hidden or is_blacklisted_ft or (is_window and n_listed_buffers == 1) or force then
+    if is_current_buffer_hidden or is_blacklisted_ft or (is_window and n_listed_buffers >= 1) or force then
         local quit_cmd = force and "q!" or "q"
         vim.cmd(quit_cmd)
-        -- Check if quitted buffer still exists after quitting. If yes then clean up
-        if vim.fn.bufexists(current_buf) == 1 then
-            vim.cmd("BufDel "..current_buf)
+        -- Check if quit buffer still exists after quitting. If yes then clean up
+        if vim.fn.bufexists(current_buf) == 1 and n_listed_buffers > 1 then
+            vim.cmd("BufDel " .. current_buf)
         end
     elseif n_listed_buffers > 1 then
-        vim.cmd("BufDel "..current_buf)
+        vim.cmd("BufDel " .. current_buf)
     else
         -- Prompt the user for input
         vim.ui.select({ "Yes", "No" }, { prompt = "Do you really want to quit?" }, function(selected)
