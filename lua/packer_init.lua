@@ -168,8 +168,8 @@ return packer.startup(function(use)
     -- Document generator
     use({
         "kkoomen/vim-doge",
-        run = ':call doge#install, commit="d4ead080f9c45bda760f85f4c34620255094dff5"({ "headless": 1 })',
-        commit = "d4ead080f9c45bda760f85f4c34620255094dff5",
+        run = ':call doge#install({ "headless": 1 })',
+        commit = "aa449a31373526fe12e72dde4532c1d7abf6787a",
     })
 
     -- Nice looking pop-ups
