@@ -183,6 +183,7 @@ local mappings = {
             c = { "<cmd>lua require('dap-python').test_class()<CR><ESC>l", "Test class" },
         },
     },
+    ["z"] = { "<cmd>ZenMode<CR>", "Zen Mode" },
 }
 
 which_key.setup(setup)
