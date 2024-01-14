@@ -69,7 +69,11 @@ return packer.startup(function(use)
     use({ "hrsh7th/cmp-calc", commit = "ce91d14d2e7a8b3f6ad86d85e34d41c1ae6268d9" }) -- cmdline completions
     use({ "saadparwaiz1/cmp_luasnip", commit = "18095520391186d634a0045dacaa346291096566" }) -- snippet completions
     use({ "hrsh7th/cmp-nvim-lua", commit = "f12408bdb54c39c23e67cab726264c10db33ada8" }) -- completion for lua
-    use({ "petertriho/cmp-git", requires = "nvim-lua/plenary.nvim", commit = "8d8993680d627c8f13bd85094eba84604107dbdd"})
+    use({
+        "petertriho/cmp-git",
+        requires = "nvim-lua/plenary.nvim",
+        commit = "8d8993680d627c8f13bd85094eba84604107dbdd",
+    })
 
     -- snippets
     use({ "L3MON4D3/LuaSnip", commit = "82108e7e31cc6fc223cc5df5cae6d89f70bb199f", run = "make install_jsregexp" }) --snippet engine

@@ -108,6 +108,7 @@ cmp.setup({
                 luasnip = "[Snippet]",
                 buffer = "[Buffer]",
                 path = "[Path]",
+                git = "[GIT]"
             })[entry.source.name]
             return vim_item
         end,
@@ -168,6 +169,29 @@ cmp_git.setup({
             state = "open", -- open, closed, merged, all
             sort_by = sort.github.pull_requests,
             format = format.github.pull_requests,
+        },
+    },
+    trigger_actions = {
+        {
+            debug_name = "git_commits",
+            trigger_character = "=", -- Changing the default trigger ":" because of emoji conflict
+            action = function(sources, trigger_char, callback, params, _)
+                return sources.git:get_commits(callback, params, trigger_char)
+            end,
+        },
+        {
+            debug_name = "github_issues_and_pr",
+            trigger_character = "#",
+            action = function(sources, trigger_char, callback, _, git_info)
+                return sources.github:get_issues_and_prs(callback, git_info, trigger_char)
+            end,
+        },
+        {
+            debug_name = "github_mentions",
+            trigger_character = "@",
+            action = function(sources, trigger_char, callback, _, git_info)
+                return sources.github:get_mentions(callback, git_info, trigger_char)
+            end,
         },
     },
 })
