@@ -73,7 +73,14 @@ mason_installer.setup({
 
 local opts = {}
 
-for _, server in pairs(servers) do
+local non_mason_servers = {
+    "mlir_lsp_server",
+    "mlir_pdll_lsp_server",
+    "tblgen_lsp_server",
+}
+local lsp_servers = require("utils").list.concat(servers, non_mason_servers)
+
+for _, server in pairs(lsp_servers) do
     opts = {
         on_attach = require("plugins.lsp.handlers").on_attach,
         capabilities = require("plugins.lsp.handlers").capabilities,
