@@ -25,6 +25,7 @@ configs.setup({
     sync_install = false, -- install languages asynchronously
     auto_install = true, -- installs missing parsers on opening file
     ignore_install = {
+        "scfg",
         "smali",
         "fusion",
         "blueprint",
