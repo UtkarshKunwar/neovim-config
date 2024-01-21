@@ -10,11 +10,6 @@ if not status_ok_hlargs then
     return
 end
 
-local status_ok_rainbow, rainbow_delimiters = pcall(require, "rainbow-delimiters")
-if not status_ok_rainbow then
-    return
-end
-
 configs.setup({
     ensure_installed = "all", -- one of "all" or a list of languages
     sync_install = false, -- install languages asynchronously
@@ -41,16 +36,3 @@ configs.setup({
         enable_autocmd = false,
     },
 })
-
--- Not using setup() call because of additional overhead according to the documentation.
-vim.g.rainbow_delimiters = {
-    strategy = {
-        [""] = rainbow_delimiters.strategy["global"],
-        vim = rainbow_delimiters.strategy["local"],
-    },
-    query = {
-        [""] = "rainbow-delimiters",
-        lua = "rainbow-blocks",
-    },
-    -- blacklist = { "c", "cpp" }, -- add blacklisted languages here
-}

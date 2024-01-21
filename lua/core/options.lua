@@ -41,12 +41,20 @@ local options = {
     equalalways = false, -- Required for the windows plugin
 }
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.opt.list = true
+vim.opt.listchars:append("lead:·,eol:¬,tab:> ")
+
+-- To break long lines
+vim.opt.breakindent = true
+vim.opt.breakindentopt = "shift:4"
+vim.opt.showbreak = "↳"
+
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
+vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
