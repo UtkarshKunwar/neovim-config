@@ -89,8 +89,8 @@ return packer.startup(function(use)
     use({ "williamboman/mason-lspconfig.nvim", commit = "2451adb9bdb0fd32140bf3aa8dbc17ff60050db3" }) -- simple installation of LSPs
     use({ "WhoIsSethDaniel/mason-tool-installer.nvim", commit = "031903fefbf59371502092ef9e22cab9161d90ba" }) -- Automatically install mason stuff
     use({ "hrsh7th/cmp-nvim-lsp", commit = "44b16d11215dce86f253ce0c30949813c0a90765" }) -- completion for nvim LSP
-    use({ "jose-elias-alvarez/null-ls.nvim", commit = "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7" }) -- for formatters and linters
-    use({ "jay-babu/mason-null-ls.nvim", tag = "v2.1.0" }) -- to close the gaps between null-ls and mason
+    use({ "nvimtools/none-ls.nvim", commit = "e64f03f3f77bd6854c3b3c5cfffcc806a0c0f66a" }) -- for formatters and linters
+    use({ "jay-babu/mason-null-ls.nvim", tag = "v2.3.0" }) -- to close the gaps between null-ls and mason
     use({ "RRethy/vim-illuminate", commit = "6acf7d4a18255a3ddc43770866c8e148fe85af7b" }) -- for hover usage highlighting
     use({ "ray-x/lsp_signature.nvim", commit = "bdf3dc7bb03edd25c2173e0e31c2fb122052ed23" }) -- for improved signatures
 
