@@ -3,12 +3,7 @@ if not status_ok then
     return
 end
 
-local status_ok_install, install = pcall(require, "nvim-treesitter.install")
-if not status_ok_install then
-    return
-end
-
-install.prefer_git = true
+require("nvim-treesitter.install").prefer_git = true
 
 local status_ok_hlargs, _ = pcall(require, "hlargs")
 if not status_ok_hlargs then
@@ -25,6 +20,7 @@ configs.setup({
     sync_install = false, -- install languages asynchronously
     auto_install = true, -- installs missing parsers on opening file
     ignore_install = {
+        "wing",
         "scfg",
         "smali",
         "fusion",
