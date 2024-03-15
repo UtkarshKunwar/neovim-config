@@ -19,7 +19,6 @@ if not lspconfig_status_ok then
 end
 
 local servers = {
-    "awk_ls", -- awk
     "bashls", -- bash
     "cmake", -- cmake
     "clangd", -- C/C++
@@ -34,7 +33,7 @@ local servers = {
     "lua_ls", -- Lua
     "tsserver", -- TypeScript
     "yamlls", -- YAML
-    "marksman", -- MarkDown
+    "marksman", -- Markdown
 }
 
 local settings = {
@@ -50,7 +49,7 @@ local settings = {
     max_concurrent_installers = 4,
     providers = {
         "mason.providers.registry-api",
-    }
+    },
 }
 
 mason.setup(settings)
@@ -62,6 +61,7 @@ mason_lspconfig.setup({
 local non_lsp_servers = {
     "debugpy", -- Python
     "cpptools", -- C/C++
+    "flake8", -- Python
 }
 
 local mason_servers = require("utils").list.concat(servers, non_lsp_servers)
@@ -101,14 +101,14 @@ for _, server in pairs(lsp_servers) do
                 },
                 workspace = {
                     library = {
-                        [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-                        [vim.fn.stdpath "config" .. "/lua"] = true,
-                    }
+                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                        [vim.fn.stdpath("config") .. "/lua"] = true,
+                    },
                 },
                 format = {
                     enable = false,
-                }
-            }
+                },
+            },
         }
         opts["settings"] = lua_settings
     end

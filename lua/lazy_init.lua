@@ -80,6 +80,7 @@ lazy.setup({
         "nvimtools/none-ls.nvim", -- for formatters and linters
         dependencies = {
             "nvimtools/none-ls-extras.nvim",
+            "gbprod/none-ls-shellcheck.nvim",
         },
     },
     { "jay-babu/mason-null-ls.nvim", version = "v2.3.0" }, -- to close the gaps between null-ls and mason

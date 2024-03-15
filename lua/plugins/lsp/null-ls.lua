@@ -12,41 +12,44 @@ end
 
 local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
-local actions = null_ls.builtins.code_actions
 
 null_ls.setup({
     sources = {
         -- Python
-        diagnostics.flake8,
         diagnostics.mypy,
         formatting.black,
         formatting.isort,
+        require("none-ls.diagnostics.flake8"),
+        -- require("none-ls.diagnostics.ruff"), -- Replace above with ruff when mature
 
         -- C/C++
         formatting.clang_format,
 
         -- Miscellaneous
-        actions.gitsigns,
-        actions.shellcheck,
-
         diagnostics.codespell,
         diagnostics.gitlint,
         diagnostics.hadolint,
         diagnostics.markdownlint,
         diagnostics.protolint,
-        diagnostics.shellcheck,
-        diagnostics.yamllint,
-
-        formatting.fixjson,
-        formatting.markdownlint,
+        diagnostics.yamllint.with({
+            extra_args = {
+                "-d",
+                "{extends: default, rules: {document-start: disable}}",
+            },
+        }),
+        require("none-ls-shellcheck.diagnostics"), -- Legacy
+        require("none-ls-shellcheck.code_actions"), -- Legacy
+        diagnostics.selene,
+        formatting.mdformat.with({ extra_args = { "--wrap", "80" } }),
         formatting.prettier,
         formatting.protolint,
         formatting.stylua,
         formatting.yamlfmt,
+        formatting.shfmt,
     },
-    on_attach = function (client, bufnr)
+    on_attach = function(_, bufnr)
         vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
-    end
+    end,
 })
 
 mason_null_ls.setup({
