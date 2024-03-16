@@ -34,7 +34,7 @@ null_ls.setup({
         diagnostics.yamllint.with({
             extra_args = {
                 "-d",
-                "{extends: default, rules: {document-start: disable}}",
+                "{extends: default, rules: {document-start: disable, comments: disable}}",
             },
         }),
         require("none-ls-shellcheck.diagnostics"), -- Legacy
