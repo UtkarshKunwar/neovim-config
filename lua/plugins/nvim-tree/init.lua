@@ -6,7 +6,8 @@ if not status_ok then
     return
 end
 
-local autogen_status_ok, autogen = pcall(require, "plugins.nvim-tree.nvim-tree-on-attach")
+local autogen_status_ok, autogen =
+    pcall(require, "plugins.nvim-tree.nvim-tree-on-attach")
 if not autogen_status_ok then
     return
 end

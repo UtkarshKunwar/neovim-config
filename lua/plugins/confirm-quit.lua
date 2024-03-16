@@ -12,7 +12,8 @@ function SmartQuit(force)
 
     local current_buf = vim.fn.bufnr("%")
     local current_buf_ft = vim.api.nvim_buf_get_option(current_buf, "filetype")
-    local is_blacklisted_ft = utils.list.find(always_quit_filetypes, current_buf_ft)
+    local is_blacklisted_ft =
+        utils.list.find(always_quit_filetypes, current_buf_ft)
 
     -- Count actual number of windows with relevant filetype
     -- https://www.reddit.com/r/neovim/comments/thynt9/what_api_to_get_the_current_count_of_windows/
@@ -20,14 +21,23 @@ function SmartQuit(force)
     local relevant_windows = 0
     for _, v in pairs(windows) do
         local cfg = vim.api.nvim_win_get_config(v)
-        local ft = vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(v), "filetype")
-        if (cfg.relative == "" or cfg.external == false) and not utils.list.find(always_quit_filetypes, ft) then
+        local ft =
+            vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(v), "filetype")
+        if
+            (cfg.relative == "" or cfg.external == false)
+            and not utils.list.find(always_quit_filetypes, ft)
+        then
             relevant_windows = relevant_windows + 1
         end
     end
     local is_window = relevant_windows > 1
 
-    if is_current_buffer_hidden or is_blacklisted_ft or (is_window and n_listed_buffers >= 1) or force then
+    if
+        is_current_buffer_hidden
+        or is_blacklisted_ft
+        or (is_window and n_listed_buffers >= 1)
+        or force
+    then
         local quit_cmd = force and "q!" or "q"
         vim.cmd(quit_cmd)
         -- Check if quit buffer still exists after quitting. If yes then clean up
@@ -38,11 +48,15 @@ function SmartQuit(force)
         vim.cmd("BufDel " .. current_buf)
     else
         -- Prompt the user for input
-        vim.ui.select({ "Yes", "No" }, { prompt = "Do you really want to quit?" }, function(selected)
-            if selected == "Yes" then
-                vim.cmd("q")
+        vim.ui.select(
+            { "Yes", "No" },
+            { prompt = "Do you really want to quit?" },
+            function(selected)
+                if selected == "Yes" then
+                    vim.cmd("q")
+                end
             end
-        end)
+        )
     end
 end
 

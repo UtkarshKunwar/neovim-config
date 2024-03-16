@@ -3,7 +3,8 @@ if not status_ok then
     return
 end
 
-local status_ok_rainbow, rainbow_delimiters = pcall(require, "rainbow-delimiters")
+local status_ok_rainbow, rainbow_delimiters =
+    pcall(require, "rainbow-delimiters")
 if not status_ok_rainbow then
     return
 end

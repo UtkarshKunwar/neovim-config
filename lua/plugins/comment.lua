@@ -3,7 +3,8 @@ if not status_ok then
     return
 end
 
-local ctx_status_ok, ctx_comment = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
+local ctx_status_ok, ctx_comment =
+    pcall(require, "ts_context_commentstring.integrations.comment_nvim")
 if not ctx_status_ok then
     return
 end

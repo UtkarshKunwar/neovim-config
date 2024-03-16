@@ -13,7 +13,8 @@ bufdel.setup({
     quit = false,
 })
 
-local integration_status_ok, catppuccin_integration = pcall(require, "catppuccin.groups.integrations.bufferline")
+local integration_status_ok, catppuccin_integration =
+    pcall(require, "catppuccin.groups.integrations.bufferline")
 if not integration_status_ok then
     return
 end

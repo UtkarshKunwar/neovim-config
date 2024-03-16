@@ -76,9 +76,9 @@ end
 
 local venv = {
     actived_venv,
-    on_click = function ()
+    on_click = function()
         vim.api.nvim_command("VenvSelect")
-    end
+    end,
 }
 
 lualine.setup({

@@ -30,7 +30,12 @@ end
 local has_words_before = function()
     unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    return col ~= 0
+        and vim.api
+                .nvim_buf_get_lines(0, line - 1, line, true)[1]
+                :sub(col, col)
+                :match("%s")
+            == nil
 end
 
 cmp.setup({
@@ -185,14 +190,22 @@ cmp_git.setup({
             debug_name = "github_issues_and_pr",
             trigger_character = "#",
             action = function(sources, trigger_char, callback, _, git_info)
-                return sources.github:get_issues_and_prs(callback, git_info, trigger_char)
+                return sources.github:get_issues_and_prs(
+                    callback,
+                    git_info,
+                    trigger_char
+                )
             end,
         },
         {
             debug_name = "github_mentions",
             trigger_character = "@",
             action = function(sources, trigger_char, callback, _, git_info)
-                return sources.github:get_mentions(callback, git_info, trigger_char)
+                return sources.github:get_mentions(
+                    callback,
+                    git_info,
+                    trigger_char
+                )
             end,
         },
     },

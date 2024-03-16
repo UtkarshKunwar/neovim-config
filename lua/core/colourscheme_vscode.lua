@@ -25,9 +25,9 @@ vscode.setup({
     group_overrides = {
         -- this supports the same val table as vim.api.nvim_set_hl
         -- use colors from this colorscheme by requiring vscode.colors!
-        Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
-        CursorLine = { fg=c.vscDarkBlue, bg="#2f2f2f", bold=false },
-        ColorColumn = { fg=c.vscDarkBlue, bg="#2f2f2f", bold=false },
-    }
+        Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+        CursorLine = { fg = c.vscDarkBlue, bg = "#2f2f2f", bold = false },
+        ColorColumn = { fg = c.vscDarkBlue, bg = "#2f2f2f", bold = false },
+    },
 })
 vscode.load()

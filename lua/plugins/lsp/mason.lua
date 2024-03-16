@@ -3,12 +3,14 @@ if not status_ok then
     return
 end
 
-local mason_lsp_config_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+local mason_lsp_config_status_ok, mason_lspconfig =
+    pcall(require, "mason-lspconfig")
 if not mason_lsp_config_status_ok then
     return
 end
 
-local installer_status_ok, mason_installer = pcall(require, "mason-tool-installer")
+local installer_status_ok, mason_installer =
+    pcall(require, "mason-tool-installer")
 if not installer_status_ok then
     return
 end
@@ -88,7 +90,8 @@ for _, server in pairs(lsp_servers) do
 
     server = vim.split(server, "@")[1]
 
-    local require_ok, conf_opts = pcall(require, "plugins.lsp.settings." .. server)
+    local require_ok, conf_opts =
+        pcall(require, "plugins.lsp.settings." .. server)
     if require_ok then
         opts = vim.tbl_deep_extend("force", conf_opts, opts)
     end

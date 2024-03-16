@@ -6,7 +6,7 @@ vim.g.mkdp_combine_preview = 1
 vim.g.mkdp_combine_preview_auto_refresh = 1
 
 local M = {}
-M.execute = function ()
+M.execute = function()
     if vim.fn.exists(":MarkdownPreview") > 0 then
         vim.api.nvim_command("MarkdownPreviewToggle")
     else
