@@ -49,7 +49,7 @@ lazy.setup({
     { "andymass/vim-matchup", event = "VimEnter" }, -- Extend % support for matching keywords
     "flazz/vim-colorschemes", -- All the colorschemes
     "Mofiqul/vscode.nvim", -- Look like VSCode for the normies
-    { "catppuccin/nvim", name = "catppuccin" },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
     -- cmp plugins
     "hrsh7th/nvim-cmp", -- The completion plugin
