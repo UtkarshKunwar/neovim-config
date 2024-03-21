@@ -72,7 +72,7 @@ lazy.setup({
 
     -- LSP
     "neovim/nvim-lspconfig", -- enables LSP
-    { "williamboman/mason.nvim", version = "v1.8.0" }, -- simple installation of LSPs
+    "williamboman/mason.nvim", -- simple installation of LSPs
     "williamboman/mason-lspconfig.nvim", -- simple installation of LSPs
     "WhoIsSethDaniel/mason-tool-installer.nvim", -- Automatically install mason stuff
     "hrsh7th/cmp-nvim-lsp", -- completion for nvim LSP
@@ -85,7 +85,6 @@ lazy.setup({
     },
     {
         "jay-babu/mason-null-ls.nvim",
-        version = "v2.3.0",
         event = { "BufReadPre", "BufNewFile" },
     }, -- to close the gaps between null-ls and mason
     "RRethy/vim-illuminate", -- for hover usage highlighting
@@ -98,7 +97,7 @@ lazy.setup({
     -- Motion
     {
         "phaazon/hop.nvim",
-        version = "v2.0.3", -- optional but strongly recommended
+        branch = "v2", -- optional but strongly recommended
     },
     "karb94/neoscroll.nvim",
 
@@ -140,7 +139,7 @@ lazy.setup({
     "nvim-tree/nvim-web-devicons",
 
     -- BufferLine
-    { "akinsho/bufferline.nvim", version = "v4.4.0" },
+    { "akinsho/bufferline.nvim", version = "*" },
     "tiagovla/scope.nvim",
     "ojroques/nvim-bufdel",
     "SmiteshP/nvim-navic",
@@ -152,7 +151,7 @@ lazy.setup({
     "stevearc/aerial.nvim",
 
     -- ToggleTerm
-    { "akinsho/toggleterm.nvim", version = "v2.7.1" },
+    { "akinsho/toggleterm.nvim", version = "*" },
 
     -- Projects
     "ahmedkhalf/project.nvim",
@@ -161,7 +160,7 @@ lazy.setup({
     "lewis6991/impatient.nvim",
 
     -- IndentLine
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", version = "v3.5.2" },
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
 
     -- Welcome screen
     "goolord/alpha-nvim",
@@ -185,8 +184,7 @@ lazy.setup({
     "mfussenegger/nvim-dap",
     {
         "rcarriga/nvim-dap-ui",
-        dependencies = { "mfussenegger/nvim-dap" },
-        version = "v3.9.1",
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     },
     "mfussenegger/nvim-dap-python",
     "theHamsta/nvim-dap-virtual-text",
