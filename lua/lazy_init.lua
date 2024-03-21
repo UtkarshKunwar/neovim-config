@@ -83,9 +83,13 @@ lazy.setup({
             "gbprod/none-ls-shellcheck.nvim",
         },
     },
-    { "jay-babu/mason-null-ls.nvim", version = "v2.3.0" }, -- to close the gaps between null-ls and mason
+    {
+        "jay-babu/mason-null-ls.nvim",
+        version = "v2.3.0",
+        event = { "BufReadPre", "BufNewFile" },
+    }, -- to close the gaps between null-ls and mason
     "RRethy/vim-illuminate", -- for hover usage highlighting
-    "ray-x/lsp_signature.nvim", -- for improved signatures
+    { "ray-x/lsp_signature.nvim", event = "VeryLazy" }, -- for improved signatures
 
     -- Fuzzy file finder
     "nvim-telescope/telescope.nvim",
@@ -118,11 +122,11 @@ lazy.setup({
     },
 
     -- Brackets
-    "windwp/nvim-autopairs", -- Automatically close brackets
-    "kylechui/nvim-surround", -- Conveniently change brackets
+    { "windwp/nvim-autopairs", event = "InsertEnter" }, -- Automatically close brackets
+    { "kylechui/nvim-surround", event = "VeryLazy" }, -- Conveniently change brackets
 
     -- Commenting
-    "numToStr/Comment.nvim", -- allows commenting
+    { "numToStr/Comment.nvim", lazy = false }, -- allows commenting
     "JoosepAlviste/nvim-ts-context-commentstring", -- Uses treesitter to get context for better commenting
 
     -- Git
@@ -130,7 +134,7 @@ lazy.setup({
     "f-person/git-blame.nvim",
 
     -- File Tree Plugin
-    "nvim-tree/nvim-tree.lua",
+    { "nvim-tree/nvim-tree.lua", lazy = false },
 
     -- Icons
     "nvim-tree/nvim-web-devicons",
@@ -163,7 +167,7 @@ lazy.setup({
     "goolord/alpha-nvim",
 
     -- Which key to press for doing what
-    "folke/which-key.nvim",
+    { "folke/which-key.nvim", event = "VeryLazy" },
 
     -- Document generator
     {
@@ -198,7 +202,7 @@ lazy.setup({
     },
 
     -- Virtual environment
-    "linux-cultist/venv-selector.nvim",
+    { "linux-cultist/venv-selector.nvim", event = "VeryLazy" },
 
     -- LLM
     { "David-Kunz/gen.nvim", event = "VeryLazy" },
