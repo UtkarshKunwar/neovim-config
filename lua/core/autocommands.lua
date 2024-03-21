@@ -30,7 +30,6 @@ autocmd("Filetype", {
     group = "setLineLength",
     pattern = {
         "text",
-        "markdown",
         "html",
         "xhtml",
         "javascript",

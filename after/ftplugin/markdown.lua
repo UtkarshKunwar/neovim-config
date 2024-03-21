@@ -6,5 +6,6 @@ end
 -- Mark the filetype plugin as run for this buffer
 vim.b.markdown_ftplugin = true
 
-vim.opt.wrap = true
-vim.opt.textwidth = 80
+vim.opt_local.wrap = true
+vim.opt_local.textwidth = 80
+vim.opt_local.colorcolumn = "+2"

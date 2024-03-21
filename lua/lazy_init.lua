@@ -103,7 +103,7 @@ lazy.setup({
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
     },
-    "hiphish/rainbow-delimiters.nvim",
+    { "hiphish/rainbow-delimiters.nvim", submodules = false },
     {
         "m-demare/hlargs.nvim",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
@@ -201,7 +201,7 @@ lazy.setup({
     "linux-cultist/venv-selector.nvim",
 
     -- LLM
-    "David-Kunz/gen.nvim",
+    { "David-Kunz/gen.nvim", event = "VeryLazy" },
 
     -- Zen Mode
     "folke/zen-mode.nvim",
