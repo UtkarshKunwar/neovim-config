@@ -40,6 +40,11 @@ nvim_tree.setup({
     view = {
         width = 25,
     },
+    filters = {
+        custom = {
+            ".git",
+        },
+    },
 })
 
 -- {{ Auto close functionality
