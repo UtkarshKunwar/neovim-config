@@ -33,6 +33,8 @@ keymap("n", "L", ":BufferLineCycleNext<CR>", opts)
 keymap("n", ";", ":", opts)
 keymap("n", "0", "g0", opts)
 keymap("n", "$", "g$", opts)
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
 keymap("n", "U", "<C-r>", opts)
 
 -- Resize with arrows
