@@ -9,6 +9,13 @@ if not ctx_status_ok then
     return
 end
 
+local todo_status_ok, todo = pcall(require, "todo-comments")
+if not todo_status_ok then
+    return
+end
+
 comment.setup({
     pre_hook = ctx_comment.create_pre_hook(),
 })
+
+todo.setup({})

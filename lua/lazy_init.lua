@@ -127,6 +127,10 @@ lazy.setup({
     -- Commenting
     { "numToStr/Comment.nvim", lazy = false }, -- allows commenting
     "JoosepAlviste/nvim-ts-context-commentstring", -- Uses treesitter to get context for better commenting
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
 
     -- Git
     "lewis6991/gitsigns.nvim",

@@ -136,6 +136,7 @@ local mappings = {
         },
         g = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature" },
         q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Local List" },
+        t = { "<cmd>TodoTelescope<CR>", "Project TODO comments" },
     },
     s = {
         name = "Search",
