@@ -114,7 +114,7 @@ lazy.setup({
 
     -- Markdown previewer
     {
-        "iamcco/markdown-preview.nvim",
+        "UtkarshKunwar/markdown-preview.nvim",
         build = function()
             vim.fn["mkdp#util#install"]()
         end,

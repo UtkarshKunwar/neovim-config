@@ -16,6 +16,7 @@ repos:
       - id: destroyed-symlinks
       - id: detect-private-key
       - id: end-of-file-fixer
+        exclude: "lazy-lock.json"
       - id: no-commit-to-branch
       - id: trailing-whitespace
       - id: mixed-line-ending
@@ -31,3 +32,18 @@ repos:
     hooks:
       - id: commitizen
         stages: [commit-msg]
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.17 # Use the ref you want to point at
+    hooks:
+      - id: mdformat
+        # Optionally add plugins
+        additional_dependencies:
+          - mdformat-gfm
+          - mdformat-frontmatter
+          - mdformat-toc
+          - mdformat-myst
+          - mdformat-black
+          - mdformat-beautysh
+          - linkify-it-py
+        args: ["--wrap", "80"]
+        exclude: "CHANGELOG.md"
