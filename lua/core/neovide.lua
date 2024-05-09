@@ -6,9 +6,11 @@ if vim.g.neovide then
     -- TODO: doesn't work for some reason
     keymap("c", "<D-v>", "<C-R>+", opts) -- Paste command mode
     keymap("i", "<D-v>", '<ESC>l"+Pli', opts) -- Paste insert mode
+    keymap("n", "<S-Del>", "<BSP>", opts) -- Backspace when shift
+    keymap("n", "<S-SPC>", "<SPC>", opts) -- Backspace when shift
 
     -- Dynamic scaling of the display
-    vim.g.neovide_scale_factor = 0.95
+    vim.g.neovide_scale_factor = 1.2
     local change_scale_factor = function(delta)
         vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
     end
