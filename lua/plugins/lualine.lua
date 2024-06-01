@@ -29,7 +29,7 @@ local diff = {
 
 local filetype = {
     "filetype",
-    icons_enabled = false,
+    icons_enabled = true,
     icon = nil,
 }
 
@@ -70,15 +70,36 @@ local actived_venv = function()
     if venv_name ~= nil then
         return string.gsub(venv_name, ".*virtualenvs/", " ")
     else
-        return ""
+        return ""
     end
 end
 
 local venv = {
     actived_venv,
-    on_click = function()
-        vim.api.nvim_command("VenvSelect")
+    on_click = function(_, btn, _)
+        if btn == "r" then
+            local active_venv = require("venv-selector").get_active_venv()
+            if not active_venv then
+                vim.notify(
+                    "No virtual environment active",
+                    vim.log.levels.WARN,
+                    { title = "VenvSelect" }
+                )
+                return
+            end
+            local venv_name = string.gsub(active_venv, ".*virtualenvs/", "")
+            require("venv-selector").deactivate_venv()
+            vim.notify(
+                'Deactivated virtual environment "' .. venv_name .. '"',
+                vim.log.levels.INFO,
+                { title = "VenvSelect" }
+            )
+        else
+            vim.api.nvim_command("VenvSelect")
+        end
     end,
+    update_in_insert = false,
+    always_visible = true,
 }
 
 lualine.setup({
@@ -92,8 +113,8 @@ lualine.setup({
         always_divide_middle = true,
     },
     sections = {
-        lualine_a = { "mode" },
-        lualine_b = { branch, diagnostics, venv },
+        lualine_a = { "mode", venv },
+        lualine_b = { branch, diagnostics },
         lualine_c = {},
         lualine_x = { diff, spaces, "encoding", filetype },
         lualine_y = { location },
