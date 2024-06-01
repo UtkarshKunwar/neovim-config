@@ -224,4 +224,13 @@ lazy.setup({
             "nvim-lua/plenary.nvim",
         },
     },
+    {
+        "UtkarshKunwar/obsidian-bridge.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim" },
+        event = {
+            "BufReadPre *.md",
+            "BufNewFile *.md",
+        },
+        lazy = true,
+    },
 })

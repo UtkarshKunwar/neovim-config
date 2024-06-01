@@ -3,6 +3,11 @@ if not status_ok then
     return
 end
 
+local bridge_status_ok, obsidian_bridge = pcall(require, "obsidian-bridge")
+if not bridge_status_ok then
+    return
+end
+
 obsidian.setup({
     workspaces = {
         {
@@ -54,4 +59,9 @@ obsidian.setup({
             ObsidianHighlightText = { bg = "#75662e" },
         },
     },
+})
+
+obsidian_bridge.setup({
+    obsidian_server_address = "http://localhost:27123",
+    scroll_sync = true,
 })
