@@ -20,6 +20,12 @@ if not lspconfig_status_ok then
     return
 end
 
+local lspconfig_util_status_ok, lspconfig_util =
+    pcall(require, "lspconfig.util")
+if not lspconfig_util_status_ok then
+    return
+end
+
 local servers = {
     "bashls", -- bash
     "cmake", -- cmake
@@ -121,6 +127,42 @@ for _, server in pairs(lsp_servers) do
             "clangd",
             "--offset-encoding=utf-16",
         }
+    end
+
+    if server == "tblgen_lsp_server" then
+        opts["cmd"] = {
+            "tblgen-lsp-server",
+            "--tablegen-compilation-database=build/tablegen_compile_commands.yml",
+        }
+        -- patterns extended from clangd
+        opts["root_dir"] = lspconfig_util.root_pattern(
+            "tablegen_compile_commands.yml",
+            ".clangd",
+            ".clang-tidy",
+            ".clang-format",
+            "compile_commands.json",
+            "compile_flags.txt",
+            "configure.ac",
+            ".git"
+        )
+    end
+
+    if server == "mlir_pdll_lsp_server" then
+        opts["cmd"] = {
+            "mlir-pdll-lsp-server",
+            "--pdll-compilation-database=build/pdll_compile_commands.yml",
+        }
+        -- patterns extended from clangd
+        opts["root_dir"] = lspconfig_util.root_pattern(
+            "pdll_compile_commands.yml",
+            ".clangd",
+            ".clang-tidy",
+            ".clang-format",
+            "compile_commands.json",
+            "compile_flags.txt",
+            "configure.ac",
+            ".git"
+        )
     end
 
     lspconfig[server].setup(opts)
