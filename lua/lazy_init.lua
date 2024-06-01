@@ -212,4 +212,16 @@ lazy.setup({
     -- Zen Mode
     "folke/zen-mode.nvim",
     "folke/twilight.nvim",
+
+    -- Obsidian
+    {
+        "epwalsh/obsidian.nvim",
+        version = "*",
+        lazy = true,
+        ft = "markdown",
+        dependencies = {
+            -- Required.
+            "nvim-lua/plenary.nvim",
+        },
+    },
 })
