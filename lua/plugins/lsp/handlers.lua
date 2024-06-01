@@ -139,4 +139,7 @@ M.on_attach = function(client, bufnr)
     illuminate.on_attach(client, bufnr)
 end
 
+-- Manually turn off comment-style highlight for regions in #defines
+vim.api.nvim_set_hl(0, "@lsp.type.comment.cpp", {})
+
 return M
