@@ -18,4 +18,16 @@ comment.setup({
     pre_hook = ctx_comment.create_pre_hook(),
 })
 
-todo.setup({})
+todo.setup({
+    highlight = {
+        keyword = "bg",
+        -- Highlight commented lines like KEYWORD: and KEYWORD(whatever):.
+        pattern = [[.*<(KEYWORDS)\s*(.*)\s*:]], -- vim regex
+        comments_only = true,
+    },
+    search = {
+        -- Search for lines like KEYWORD: and KEYWORD(whatever):.
+        -- This search is code unaware.
+        pattern = [[\b(KEYWORDS)\s*(\(.*\))?\s*:]],
+    },
+})
