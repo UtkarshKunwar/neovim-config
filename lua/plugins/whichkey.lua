@@ -90,6 +90,10 @@ local mappings = {
             "Close Other Buffers",
         },
     },
+    ["c"] = {
+        "<cmd>e ~/.config/nvim/init.lua<CR>",
+        "Open NVIM Config",
+    },
     ["f"] = {
         "<cmd>:keepjumps NvimTreeFindFileToggle<CR>",
         "Toggle File Explorer",
