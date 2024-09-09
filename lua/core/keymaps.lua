@@ -135,3 +135,8 @@ keymap("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], opts)
 keymap("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], opts)
 keymap("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], opts)
 keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
+
+-- Text-Case
+keymap("n", "<Leader>cc", "<cmd>TextCaseOpenTelescope<CR>", opts)
+keymap("v", "<Leader>cc", "<cmd>TextCaseOpenTelescope<CR>", opts)
+keymap("n", "<Leader>cr", "<cmd>TextCaseOpenTelescopeLSPChange<CR>", opts)

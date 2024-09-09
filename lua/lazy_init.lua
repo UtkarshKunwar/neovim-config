@@ -212,4 +212,11 @@ lazy.setup({
     -- Zen Mode
     "folke/zen-mode.nvim",
     "folke/twilight.nvim",
+
+    -- Easy substitute for mixed cases
+    {
+        "johmsalas/text-case.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim" },
+        lazy = false,
+    },
 })
