@@ -178,9 +178,13 @@ end
 mason_registry.refresh(function()
     local mdformat = mason_registry.get_package("mdformat")
     local mdformat_extensions = {
+        "mdformat-obsidian[recommended]",
+        "mdformat-beautysh",
+        "mdformat-black",
         "mdformat-gfm",
+        "mdformat-tables",
         "mdformat-toc",
-        "mdformat-myst",
+        "linkify-it-py",
     }
     mdformat:on("install:success", function()
         -- Create the installation command.
