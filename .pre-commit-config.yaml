@@ -38,12 +38,12 @@ repos:
       - id: mdformat
         # Optionally add plugins
         additional_dependencies:
-          - mdformat-gfm
-          - mdformat-frontmatter
-          - mdformat-toc
-          - mdformat-myst
-          - mdformat-black
+          - "mdformat-obsidian[recommended]"
           - mdformat-beautysh
+          - mdformat-black
+          - mdformat-gfm
+          - mdformat-tables
+          - mdformat-toc
           - linkify-it-py
         args: ["--wrap", "80"]
         exclude: "CHANGELOG.md"
