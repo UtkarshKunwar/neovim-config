@@ -170,7 +170,13 @@ lazy.setup({
     "goolord/alpha-nvim",
 
     -- Which key to press for doing what
-    { "folke/which-key.nvim", event = "VeryLazy" },
+    -- TODO: Update to v3. Requires porting the config entirely.
+    {
+        "folke/which-key.nvim",
+        tag = "v2.1.0",
+        event = "VeryLazy",
+        dependencies = { "echasnovski/mini.icons" },
+    },
 
     -- Document generator
     {
@@ -204,7 +210,12 @@ lazy.setup({
     },
 
     -- Virtual environment
-    { "linux-cultist/venv-selector.nvim", event = "VeryLazy" },
+    -- TODO: Update to the regexp branch
+    {
+        "linux-cultist/venv-selector.nvim",
+        branch = "main",
+        event = "VeryLazy",
+    },
 
     -- LLM
     { "David-Kunz/gen.nvim", event = "VeryLazy" },
@@ -232,5 +243,12 @@ lazy.setup({
             "BufNewFile *.md",
         },
         lazy = true,
+    },
+
+    -- Easy substitute for mixed cases
+    {
+        "johmsalas/text-case.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim" },
+        lazy = false,
     },
 })

@@ -1,6 +1,4 @@
 fail_fast: false
-default_language_version:
-  python: python3.10
 default_install_hook_types: [pre-commit, commit-msg]
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -38,12 +36,12 @@ repos:
       - id: mdformat
         # Optionally add plugins
         additional_dependencies:
-          - mdformat-gfm
-          - mdformat-frontmatter
-          - mdformat-toc
-          - mdformat-myst
-          - mdformat-black
+          - "mdformat-obsidian[recommended]"
           - mdformat-beautysh
+          - mdformat-black
+          - mdformat-gfm
+          - mdformat-tables
+          - mdformat-toc
           - linkify-it-py
         args: ["--wrap", "80"]
         exclude: "CHANGELOG.md"

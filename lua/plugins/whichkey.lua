@@ -79,9 +79,20 @@ local opts = {
 }
 
 local mappings = {
-    ["b"] = {
-        "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "List Tabs",
+    b = {
+        name = "Buffers",
+        b = {
+            "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+            "List Buffers",
+        },
+        o = {
+            ":lua require('bufdel').delete_buffer_others()<cr>",
+            "Close Other Buffers",
+        },
+    },
+    ["c"] = {
+        "<cmd>e ~/.config/nvim/init.lua<CR>",
+        "Open NVIM Config",
     },
     ["f"] = {
         "<cmd>:keepjumps NvimTreeFindFileToggle<CR>",
