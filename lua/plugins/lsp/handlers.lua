@@ -116,7 +116,7 @@ local function lsp_keymaps(bufnr)
 end
 
 local formatter_blacklist = {
-    "tsserver",
+    "ts_ls",
 }
 
 M.on_attach = function(client, bufnr)

@@ -7,6 +7,7 @@ venv.setup({
     search_venv_managers = true,
     auto_refresh = true,
     search = false,
+    stay_on_this_version = true,
 })
 
 -- https://github.com/linux-cultist/venv-selector.nvim?tab=readme-ov-file#-automate

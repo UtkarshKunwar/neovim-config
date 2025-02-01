@@ -39,7 +39,7 @@ local servers = {
     "pyright", -- Python
     "rust_analyzer", -- Rust
     "lua_ls", -- Lua
-    "tsserver", -- TypeScript
+    "ts_ls", -- TypeScript
     "yamlls", -- YAML
     "marksman", -- Markdown
 }
