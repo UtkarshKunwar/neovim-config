@@ -30,11 +30,20 @@ dashboard.section.footer.opts.hl = "Type"
 dashboard.section.header.opts.hl = "Include"
 dashboard.section.buttons.opts.hl = "Keyword"
 
+-- Get the markdown file path relative to the script location
+local script_path = debug.getinfo(1).source:sub(2)
+local script_dir = script_path:match("(.*/)")
+local filename = script_dir .. "quotes.md"
+local quotes = require("plugins.quotes_md_reader").read_quotes(filename)
+local fortune_quotes = require("alpha.quotes")
+local utils = require("utils")
+
 local fortune_options = {
     max_width = 100,
     -- quotes = { -- Your own list
     --     -- {"Quote", '', '- Author'},
     -- }
+    quotes = utils.table.concat(fortune_quotes, quotes),
 }
 dashboard.section.footer.val = fortune(fortune_options)
 dashboard.section.footer.opts.hl = "Type"
