@@ -167,7 +167,10 @@ lazy.setup({
     { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
 
     -- Welcome screen
-    "goolord/alpha-nvim",
+    {
+        "goolord/alpha-nvim",
+        dependencies = { "BlakeJC94/alpha-nvim-fortune" },
+    },
 
     -- Which key to press for doing what
     -- TODO: Update to v3. Requires porting the config entirely.
