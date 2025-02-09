@@ -23,7 +23,17 @@ null_ls.setup({
         -- require("none-ls.diagnostics.ruff"), -- Replace above with ruff when mature
 
         -- C/C++
-        formatting.clang_format,
+        formatting.clang_format.with({
+            filetypes = {
+                "c",
+                "cpp",
+                "cs",
+                "java",
+                "cuda",
+                "proto",
+                "tablegen",
+            },
+        }),
 
         -- Miscellaneous
         diagnostics.codespell,
