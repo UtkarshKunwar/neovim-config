@@ -7,11 +7,12 @@ local utils = require("utils")
 --- @param force boolean: force quit or not
 function SmartQuit(force)
     print("") -- empty to clear command line
-    local n_listed_buffers = #vim.fn.getbufinfo({ buflisted = true })
+    local n_listed_buffers = #vim.fn.getbufinfo({ buflisted = 1 })
     local is_current_buffer_hidden = not vim.bo[0].buflisted
 
     local current_buf = vim.fn.bufnr("%")
-    local current_buf_ft = vim.api.nvim_buf_get_option(current_buf, "filetype")
+    local current_buf_ft =
+        vim.api.nvim_get_option_value("filetype", { buf = current_buf })
     local is_blacklisted_ft =
         utils.list.find(always_quit_filetypes, current_buf_ft)
 
@@ -21,8 +22,10 @@ function SmartQuit(force)
     local relevant_windows = 0
     for _, v in pairs(windows) do
         local cfg = vim.api.nvim_win_get_config(v)
-        local ft =
-            vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(v), "filetype")
+        local ft = vim.api.nvim_get_option_value(
+            "filetype",
+            { buf = vim.api.nvim_win_get_buf(v) }
+        )
         if
             (cfg.relative == "" or cfg.external == false)
             and not utils.list.find(always_quit_filetypes, ft)

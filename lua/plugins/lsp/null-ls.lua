@@ -48,7 +48,7 @@ null_ls.setup({
         formatting.shfmt,
     },
     on_attach = function(_, bufnr)
-        vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
+        vim.api.nvim_set_option_value("formatexpr", "", { buf = bufnr })
     end,
 })
 
