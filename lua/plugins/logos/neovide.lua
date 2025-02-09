@@ -46,7 +46,6 @@ local logos = {
 }
 
 -- Fair sampling 50-50
-math.randomseed(os.time())
 local generics = require("plugins.logos.generic")
 local i = math.random(1, #logos)
 local j = math.random(1, #generics)
