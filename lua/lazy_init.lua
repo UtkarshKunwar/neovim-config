@@ -114,10 +114,10 @@ lazy.setup({
 
     -- Markdown previewer
     {
-        "UtkarshKunwar/markdown-preview.nvim",
-        build = function()
-            vim.fn["mkdp#util#install"]()
-        end,
+        "fmorroni/peek.nvim",
+        branch = "callouts",
+        event = { "VeryLazy" },
+        build = "deno task --quiet build:fast",
     },
 
     -- Brackets
