@@ -44,4 +44,4 @@ repos:
           - mdformat-toc
           - linkify-it-py
         args: ["--wrap", "80"]
-        exclude: "CHANGELOG.md"
+        exclude: "(CHANGELOG.md)|(.*quotes.md)"

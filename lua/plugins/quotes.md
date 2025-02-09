@@ -1,0 +1,27 @@
+- Happiness is not a goal but a byproduct. One should strive to be content and accept the challenges life sends their way.
+- Hurt people hurt people. A person's behaviour is the product of their own past trauma and emotional wounds.
+- Grit is the most significant predictor of success.
+- The heaviest things in life aren't iron and gold, but unmade decisions. The reason you are stressed is because you have decisions to make and you're not making them.
+- Delusion is the solution.
+- To love someone deeply gives you strength. To be loved by someone deeply gives you courage.
+- The most important things in life are earned through compounding: wealth, knowledge, and relationships.
+- If it exists, I'll find it. If it doesn't, I'll create it.
+- If their words and actions don't line up, believe their actions.
+- Your emotions are always valid. What you're feeling is real. But your behaviour is not. Learn to separate your emotions from your behaviour.
+- To procrastinate is to be entitled. It is arrogant. It assumes there will be a later. It assumes you'll have the discipline to get to it later, despite not having the discipline now.
+- Where your fear is, there is your task.
+- BMO always bounces back. - BMO, Adventure Time
+- What you think, you become. What you feel, you attract. What you imagine, you create.
+- The iron is cold. But I find warmth in its presence.
+- You have no enemies. - Vinland Saga
+- You won't accomplish anything just by worrying about your problems. - Vinland Saga
+- A life without purpose is like a ship lost in the sea. - Vinland Saga
+- To truly understand someone you must listen not only to their words but also to their silence. - Vinland Saga
+- Those who can't throw something important away can never hope to change anything. - Vinland Saga
+- The world is cruel and the only morality in a cruel world is chance. - Vinland Saga
+- A fight you can't win becomes an obsession. - Vinland Saga
+- The more cowardly a man, the less predictable his behaviour. - Vinland Saga
+- Being empty means you can fill it with anything. If you want to be reborn, empty is the best way to be. - Vinland Saga
+- Mock me if you want. Curse me if you must. I do this to build my utopia. - Vinland Saga
+- We are born not all at once, but by bits.
+- The best is the enemy of the good.

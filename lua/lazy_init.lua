@@ -114,10 +114,10 @@ lazy.setup({
 
     -- Markdown previewer
     {
-        "UtkarshKunwar/markdown-preview.nvim",
-        build = function()
-            vim.fn["mkdp#util#install"]()
-        end,
+        "fmorroni/peek.nvim",
+        branch = "callouts",
+        event = { "VeryLazy" },
+        build = "deno task --quiet build:fast",
     },
 
     -- Brackets
@@ -167,7 +167,10 @@ lazy.setup({
     { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
 
     -- Welcome screen
-    "goolord/alpha-nvim",
+    {
+        "goolord/alpha-nvim",
+        dependencies = { "BlakeJC94/alpha-nvim-fortune" },
+    },
 
     -- Which key to press for doing what
     -- TODO: Update to v3. Requires porting the config entirely.

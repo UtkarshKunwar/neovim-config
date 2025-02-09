@@ -29,13 +29,6 @@ if vim.g.neovide then
         return
     end
 
-    alpha_dashboard.section.header.val = {
-        [[                                      __            ]],
-        [[                               __    /\ \           ]],
-        [[  ___     ___    ___   __  __ /\_\   \_\ \    ___   ]],
-        [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __ \  / __`\ ]],
-        [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \L\ \/\  __/ ]],
-        [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_____\ \____\]],
-        [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_____/\/____/]],
-    }
+    local logo = require("plugins.logos.neovide")
+    alpha_dashboard.section.header.val = logo
 end
