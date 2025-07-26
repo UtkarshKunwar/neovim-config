@@ -3,6 +3,16 @@ if not status_ok then
     return
 end
 
+local status_ok_twilight, twilight = pcall(require, "twilight")
+if not status_ok_twilight then
+    return
+end
+
+twilight.setup({
+    context = 20,
+    expand = { "table", "if_statement" },
+})
+
 zen.setup({
     window = {
         backdrop = 0.95, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal

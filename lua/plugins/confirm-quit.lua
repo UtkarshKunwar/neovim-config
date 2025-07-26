@@ -1,7 +1,9 @@
 -- Blacklisted file types for always quitting if encountering these
-local always_quit_filetypes = { "qf", "notify", "NvimTree" }
+local always_quit_filetypes = { "qf", "notify", "NvimTree", "aerial" }
 
 local utils = require("utils")
+
+local toggleterm_status, toggleterm = pcall(require, "toggleterm.terminal")
 
 -- Define a custom function to run instead of :q
 --- @param force boolean: force quit or not
@@ -34,6 +36,10 @@ function SmartQuit(force)
         end
     end
     local is_window = relevant_windows > 1
+    local toggleterms_open = 0
+    if toggleterm_status then
+        toggleterms_open = #toggleterm.get_all()
+    end
 
     if
         is_current_buffer_hidden
@@ -49,6 +55,11 @@ function SmartQuit(force)
         end
     elseif n_listed_buffers > 1 then
         vim.cmd("BufDel " .. current_buf)
+    elseif toggleterms_open > 0 then
+        vim.notify(
+            "Terminal(s) open. Cannot exit without closing.",
+            vim.log.levels.ERROR
+        )
     else
         -- Prompt the user for input
         vim.ui.select(
