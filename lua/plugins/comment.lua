@@ -18,16 +18,18 @@ comment.setup({
     pre_hook = ctx_comment.create_pre_hook(),
 })
 
+-- Regex for highlight and search from
+-- https://github.com/folke/todo-comments.nvim/issues/10#issuecomment-2446101986
 todo.setup({
     highlight = {
         keyword = "bg",
         -- Highlight commented lines like KEYWORD: and KEYWORD(whatever):.
-        pattern = [[.*<(KEYWORDS)\s*(.*)\s*:]], -- vim regex
+        pattern = [[.*<((KEYWORDS)%(\(.{-1,}\))?):]], -- vim regex
         comments_only = true,
     },
     search = {
         -- Search for lines like KEYWORD: and KEYWORD(whatever):.
         -- This search is code unaware.
-        pattern = [[\b(KEYWORDS)\s*(\(.*\))?\s*:]],
+        pattern = [[\b(KEYWORDS)(\([^\)]*\))?:]],
     },
 })
