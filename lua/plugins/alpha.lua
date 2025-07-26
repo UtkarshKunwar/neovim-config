@@ -11,7 +11,6 @@ dashboard.section.header.val = logo
 dashboard.section.buttons.val = {
     dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
     dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-    dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
     dashboard.button(
         "r",
         "  Recently used files",
@@ -39,7 +38,7 @@ local fortune_quotes = require("alpha.quotes")
 local utils = require("utils")
 
 local fortune_options = {
-    max_width = 100,
+    max_width = 120,
     -- quotes = { -- Your own list
     --     -- {"Quote", '', '- Author'},
     -- }
@@ -47,6 +46,7 @@ local fortune_options = {
 }
 dashboard.section.footer.val = fortune(fortune_options)
 dashboard.section.footer.opts.hl = "Type"
+dashboard.section.footer.opts.height = 20
 
 dashboard.opts.opts.noautocmd = true
 alpha.setup(dashboard.opts)

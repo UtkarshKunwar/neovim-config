@@ -23,7 +23,17 @@ null_ls.setup({
         -- require("none-ls.diagnostics.ruff"), -- Replace above with ruff when mature
 
         -- C/C++
-        formatting.clang_format,
+        formatting.clang_format.with({
+            filetypes = {
+                "c",
+                "cpp",
+                "cs",
+                "java",
+                "cuda",
+                "proto",
+                "tablegen",
+            },
+        }),
 
         -- Miscellaneous
         diagnostics.codespell,
@@ -48,7 +58,7 @@ null_ls.setup({
         formatting.shfmt,
     },
     on_attach = function(_, bufnr)
-        vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
+        vim.api.nvim_set_option_value("formatexpr", "", { buf = bufnr })
     end,
 })
 
