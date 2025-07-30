@@ -109,10 +109,7 @@ for _, server in pairs(lsp_servers) do
                     globals = { "vim" },
                 },
                 workspace = {
-                    library = {
-                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                        [vim.fn.stdpath("config") .. "/lua"] = true,
-                    },
+                    library = {},
                 },
                 format = {
                     enable = false,
