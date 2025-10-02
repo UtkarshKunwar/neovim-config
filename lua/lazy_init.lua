@@ -261,4 +261,12 @@ lazy.setup({
             -- configuration goes here
         },
     },
+
+    -- Markdown equation rendering
+    {
+        "Thiago4532/mdmath.nvim",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
 })
