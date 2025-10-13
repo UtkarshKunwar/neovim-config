@@ -269,4 +269,12 @@ lazy.setup({
             "nvim-treesitter/nvim-treesitter",
         },
     },
+
+    -- Image rendering
+    {
+        "3rd/image.nvim",
+        build = false,
+    },
+    -- Diagram rendering
+    "3rd/diagram.nvim",
 })
