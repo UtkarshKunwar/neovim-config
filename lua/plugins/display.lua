@@ -27,10 +27,13 @@ end
 diagram.setup({
     integrations = {
         require("diagram.integrations.markdown"),
+        require("diagram.integrations.neorg"),
     },
     renderer_options = {
         mermaid = {
-            cli_args = { "--no-sandbox" },
+            scale = 3,
+            width = 1920,
+            height = 1080,
         },
     },
 })
