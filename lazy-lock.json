@@ -9,6 +9,7 @@
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-calc": { "branch": "main", "commit": "5947b412da67306c5b68698a02a846760059be2e" },
   "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },
+  "cmp-dictionary": { "branch": "main", "commit": "fecc3ef2435c2be35818f8fcac4a6c5655f3a8f0" },
   "cmp-emoji": { "branch": "main", "commit": "dbe10a6114e2ac5dfc164bbc8e8d34c70a2deefc" },
   "cmp-git": { "branch": "main", "commit": "483ffb9a7471409a841df099d7c13556234365a4" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "99290b3ec1322070bcfb9e846450a46f6efa50f0" },

@@ -12,6 +12,12 @@ local git_status_ok, cmp_git = pcall(require, "cmp_git")
 if not git_status_ok then
     return
 end
+
+local dict_status_ok, cmp_dictionary = pcall(require, "cmp_dictionary")
+if not dict_status_ok then
+    return
+end
+
 local format = require("cmp_git.format")
 local sort = require("cmp_git.sort")
 
@@ -102,6 +108,8 @@ cmp.setup({
             -- Custom icon logic
             if entry.source.name == "calc" then
                 icon = "󰃬"
+            elseif entry.source.name == "dictionary" then
+                icon = "🕮 "
             end
 
             -- Kind icons
@@ -115,6 +123,7 @@ cmp.setup({
                 path = "[Path]",
                 emoji = "[Emoji]",
                 git = "[GIT]",
+                dictionary = "[Dict]",
             })[entry.source.name]
             return vim_item
         end,
@@ -128,6 +137,7 @@ cmp.setup({
         { name = "calc" },
         { name = "emoji", option = { insert = true } },
         { name = "git" },
+        { name = "dictionary", keyword_length = 2 },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
@@ -211,6 +221,12 @@ cmp_git.setup({
     },
 })
 
+cmp_dictionary.setup({
+    paths = { "/usr/share/dict/words" },
+    exact_length = 2,
+    first_case_insensitive = true,
+})
+
 cmp.setup.filetype("markdown", {
     sources = {
         { name = "nvim_lsp" },
@@ -221,5 +237,6 @@ cmp.setup.filetype("markdown", {
         { name = "calc" },
         { name = "emoji", option = { insert = false } }, -- we want full text in .md
         { name = "git" },
+        { name = "dictionary", keyword_length = 2 },
     },
 })

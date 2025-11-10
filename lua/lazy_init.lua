@@ -65,6 +65,7 @@ lazy.setup({
     },
 
     "UtkarshKunwar/cmp-emoji",
+    "uga-rosa/cmp-dictionary",
 
     -- snippets
     "L3MON4D3/LuaSnip", --snippet engine
