@@ -15,15 +15,16 @@ configs.setup({
     sync_install = false, -- install languages asynchronously
     auto_install = true, -- installs missing parsers on opening file
     ignore_install = {
-        "wing",
-        "scfg",
-        "smali",
-        "fusion",
         "blueprint",
-        "t32",
+        "fusion",
+        "ipkg",
         "jsonc",
         "ruby",
+        "scfg",
+        "smali",
+        "t32",
         "tlaplus",
+        "wing",
     }, -- list of languages to ignore installing
     highlight = {
         enable = true, -- false disables whole extension
