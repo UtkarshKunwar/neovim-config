@@ -20,6 +20,7 @@ end
 
 local format = require("cmp_git.format")
 local sort = require("cmp_git.sort")
+local utils = require("utils")
 
 local icons_status_ok, icons = pcall(require, "plugins.icons")
 if not icons_status_ok then
@@ -43,6 +44,16 @@ local has_words_before = function()
                 :match("%s")
             == nil
 end
+
+local default_sources = {
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
+    { name = "calc" },
+    { name = "git" },
+}
 
 cmp.setup({
     snippet = {
@@ -128,17 +139,9 @@ cmp.setup({
             return vim_item
         end,
     },
-    sources = {
-        { name = "nvim_lsp" },
-        { name = "nvim_lua" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-        { name = "calc" },
+    sources = utils.table.concat(default_sources, {
         { name = "emoji", option = { insert = true } },
-        { name = "git" },
-        { name = "dictionary", keyword_length = 2 },
-    },
+    }),
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
@@ -228,15 +231,15 @@ cmp_dictionary.setup({
 })
 
 cmp.setup.filetype("markdown", {
-    sources = {
-        { name = "nvim_lsp" },
-        { name = "nvim_lua" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-        { name = "calc" },
-        { name = "emoji", option = { insert = false } }, -- we want full text in .md
-        { name = "git" },
+    sources = utils.table.concat(default_sources, {
+        { name = "emoji", option = { insert = false } },
         { name = "dictionary", keyword_length = 2 },
-    },
+    }),
+})
+
+cmp.setup.filetype("text", {
+    sources = utils.table.concat(default_sources, {
+        { name = "emoji", option = { insert = true } },
+        { name = "dictionary", keyword_length = 2 },
+    }),
 })
