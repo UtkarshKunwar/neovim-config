@@ -1,9 +1,13 @@
-local status_ok, llm = pcall(require, "gen")
+local status_ok, ollama = pcall(require, "gen")
 if not status_ok then
     return
 end
+local status_ok_gemini, gemini = pcall(require, "gemini")
+if not status_ok_gemini then
+    return
+end
 
-llm.setup({
+ollama.setup({
     model = "coder_small", -- The default model to use.
     host = "localhost", -- The host running the Ollama service.
     port = "11434", -- The port on which the Ollama service is listening.
@@ -28,4 +32,28 @@ llm.setup({
     -- The executed command must return a JSON object with { response, context }
     -- (context property is optional).
     debug = false, -- Prints errors and the command which is run.
+})
+
+gemini.setup({
+    model_config = {
+        model_id = "gemini-2.5-flash",
+        temperature = 0.10,
+        top_k = 128,
+        response_mime_type = "text/plain",
+    },
+    chat_config = {
+        enabled = true,
+    },
+    hints = {
+        enabled = false,
+    },
+    completion = {
+        enabled = false,
+    },
+    instruction = {
+        enabled = true,
+    },
+    task = {
+        enabled = true,
+    },
 })

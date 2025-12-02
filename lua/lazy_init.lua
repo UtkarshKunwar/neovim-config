@@ -224,6 +224,7 @@ lazy.setup({
 
     -- LLM
     { "David-Kunz/gen.nvim", event = "VeryLazy" },
+    "kiddos/gemini.nvim",
 
     -- Zen Mode
     "folke/zen-mode.nvim",
