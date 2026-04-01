@@ -108,7 +108,7 @@ local mappings = {
         k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
         l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
         p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-        o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+        s = { "<cmd>Telescope git_status<cr>", "Open changed file" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
         d = {
@@ -153,12 +153,21 @@ local mappings = {
         name = "Search",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colourscheme" },
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+        f = { "<cmd>Telescope find_files<cr>", "Files" },
+        h = { "<cmd>Telescope find_files hidden=true<cr>", "Hidden Files" },
+        i = {
+            "<cmd>Telescope find_files hidden=true no_ignore=true<cr>",
+            "Hidden + Git Ignored Files",
+        },
+        r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
+        l = { "<cmd>Telescope live_grep<cr>", "Live Grep" },
+        H = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+        m = { "<cmd>Telescope marks<cr>", "Marks" },
+        M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
+        s = { "<cmd>Telescope search_history<cr>", "Search History" },
     },
 
     t = {
