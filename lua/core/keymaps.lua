@@ -28,6 +28,7 @@ keymap("n", "<C-Right>", "<C-w>L", opts)
 keymap("n", "<C-t>", ":enew<CR>", opts)
 keymap("n", "H", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "L", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<C-q>", ":tabclose<CR>", opts)
 
 -- Navigation that just makes sense to me --
 keymap("n", ";", ":", opts)
