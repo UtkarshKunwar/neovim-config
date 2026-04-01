@@ -36,10 +36,9 @@ telescope.setup({
                 ["<PageUp>"] = actions.results_scrolling_up,
                 ["<PageDown>"] = actions.results_scrolling_down,
 
-                ["<Tab>"] = actions.toggle_selection
-                    + actions.move_selection_worse,
-                ["<S-Tab>"] = actions.toggle_selection
-                    + actions.move_selection_better,
+                ["<Tab>"] = actions.move_selection_next,
+                ["<S-Tab>"] = actions.move_selection_previous,
+
                 ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
                 ["<M-q>"] = actions.send_selected_to_qflist
                     + actions.open_qflist,
@@ -58,10 +57,9 @@ telescope.setup({
                 ["<C-v>"] = actions.select_vertical,
                 ["<C-t>"] = actions.select_tab,
 
-                ["<Tab>"] = actions.toggle_selection
-                    + actions.move_selection_worse,
-                ["<S-Tab>"] = actions.toggle_selection
-                    + actions.move_selection_better,
+                ["<Tab>"] = actions.move_selection_next,
+                ["<S-Tab>"] = actions.move_selection_previous,
+
                 ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
                 ["<M-q>"] = actions.send_selected_to_qflist
                     + actions.open_qflist,
@@ -74,6 +72,7 @@ telescope.setup({
 
                 ["<Down>"] = actions.move_selection_next,
                 ["<Up>"] = actions.move_selection_previous,
+
                 ["gg"] = actions.move_to_top,
                 ["G"] = actions.move_to_bottom,
 
