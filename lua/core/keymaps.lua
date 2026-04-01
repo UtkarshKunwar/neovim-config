@@ -73,10 +73,14 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
+keymap("v", "<C-C>", "y", opts)
+
 -- Visual Block --
 -- Move text up and down
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+keymap("x", "<C-C>", "y", opts)
 
 -- Terminal --
 -- Check the config in lua/plugins/toggleterm.lua
