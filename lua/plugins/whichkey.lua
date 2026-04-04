@@ -91,7 +91,7 @@ local mappings = {
         },
     },
     ["c"] = {
-        "<cmd>e $MYVIMRC<CR><cmd>lua require('nvim-tree.api').tree.toggle({ focus = false })<CR><cmd>pwd<CR>",
+        "<cmd>e $MYVIMRC<CR><cmd>pwd<CR>",
         "Open NVIM Config",
     },
     ["f"] = {
@@ -186,6 +186,10 @@ local mappings = {
         m = {
             require("plugins.markdown-preview").execute,
             "Markdown Preview Toggle",
+        },
+        t = {
+            "<cmd>TypstPreviewToggle<CR>",
+            "Typst Preview Toggle",
         },
     },
 

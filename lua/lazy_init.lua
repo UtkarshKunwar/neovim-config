@@ -113,13 +113,19 @@ lazy.setup({
         dependencies = { "nvim-treesitter/nvim-treesitter" },
     },
 
-    -- Markdown previewer
+    -- Previewer
     {
         "UtkarshKunwar/markdown-preview.nvim",
         build = function()
             vim.cmd([[Lazy load markdown-preview.nvim]])
             vim.fn["mkdp#util#install"]()
         end,
+    },
+    {
+        "chomosuke/typst-preview.nvim",
+        lazy = false, -- or ft = 'typst'
+        version = "1.*",
+        opts = {}, -- lazy.nvim will implicitly calls `setup {}`
     },
 
     -- Brackets
