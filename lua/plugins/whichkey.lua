@@ -91,7 +91,7 @@ local mappings = {
         },
     },
     ["c"] = {
-        "<cmd>e ~/.config/nvim/init.lua<CR>",
+        "<cmd>e $MYVIMRC<CR><cmd>lua require('nvim-tree.api').tree.toggle({ focus = false })<CR><cmd>pwd<CR>",
         "Open NVIM Config",
     },
     ["f"] = {

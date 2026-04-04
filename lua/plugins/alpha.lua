@@ -20,7 +20,7 @@ dashboard.section.buttons.val = {
     dashboard.button(
         "c",
         "  Configuration",
-        ":e ~/.config/nvim/init.lua <CR>"
+        ":e $MYVIMRC<CR>:lua require('nvim-tree.api').tree.toggle({ focus = false })<CR>:pwd<CR>"
     ),
     dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
@@ -38,7 +38,7 @@ local fortune_quotes = require("alpha.quotes")
 local utils = require("utils")
 
 local fortune_options = {
-    max_width = vim.o.columns,
+    max_width = math.min(80, vim.o.columns - 20),
     -- quotes = { -- Your own list
     --     -- {"Quote", '', '- Author'},
     -- }
