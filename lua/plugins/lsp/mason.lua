@@ -42,6 +42,7 @@ local servers = {
     "ts_ls", -- TypeScript
     "yamlls", -- YAML
     "marksman", -- Markdown
+    "tinymist", -- Typst
 }
 
 local settings = {

@@ -56,6 +56,7 @@ null_ls.setup({
         formatting.stylua,
         formatting.yamlfmt,
         formatting.shfmt,
+        formatting.typstyle,
     },
     on_attach = function(_, bufnr)
         vim.api.nvim_set_option_value("formatexpr", "", { buf = bufnr })

@@ -1,4 +1,5 @@
 fail_fast: false
+exclude: "COMMIT_EDITMSG"
 default_install_hook_types: [pre-commit, commit-msg]
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -15,7 +16,6 @@ repos:
       - id: detect-private-key
       - id: end-of-file-fixer
         exclude: "lazy-lock.json"
-      - id: no-commit-to-branch
       - id: trailing-whitespace
       - id: mixed-line-ending
         args: ["--fix", "lf"]
