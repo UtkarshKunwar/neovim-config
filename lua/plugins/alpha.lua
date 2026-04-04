@@ -38,7 +38,7 @@ local fortune_quotes = require("alpha.quotes")
 local utils = require("utils")
 
 local fortune_options = {
-    max_width = 120,
+    max_width = vim.o.columns,
     -- quotes = { -- Your own list
     --     -- {"Quote", '', '- Author'},
     -- }
@@ -46,7 +46,6 @@ local fortune_options = {
 }
 dashboard.section.footer.val = fortune(fortune_options)
 dashboard.section.footer.opts.hl = "Type"
-dashboard.section.footer.opts.height = 20
 
 dashboard.opts.opts.noautocmd = true
 alpha.setup(dashboard.opts)
