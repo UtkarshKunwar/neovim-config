@@ -55,16 +55,6 @@ M.setup = function()
     }
 
     vim.diagnostic.config(config)
-
-    vim.lsp.handlers["textDocument/hover"] =
-        vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-        })
-
-    vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, {
-            border = "rounded",
-        })
 end
 
 vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({async = true})' ]])
@@ -79,7 +69,13 @@ local function lsp_keymaps(bufnr)
         "<cmd>lua require('telescope.builtin').lsp_definitions({show_line=false})<CR>",
         opts
     )
-    keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+    keymap(
+        bufnr,
+        "n",
+        "K",
+        "<cmd>lua vim.lsp.buf.hover({border = 'rounded'})<CR>",
+        opts
+    )
     keymap(
         bufnr,
         "n",
