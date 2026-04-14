@@ -42,7 +42,7 @@
   "neoscroll.nvim": { "branch": "master", "commit": "f957373912e88579e26fdaea4735450ff2ef5c9c" },
   "none-ls-extras.nvim": { "branch": "main", "commit": "6557f20e631d2e9b2a9fd27a5c045d701a3a292c" },
   "none-ls-shellcheck.nvim": { "branch": "main", "commit": "0f84461241e76e376a95fb7391deac82dc3efdbf" },
-  "none-ls.nvim": { "branch": "main", "commit": "aa1620be06f7a5158864a33be045229da67ff840" },
+  "none-ls.nvim": { "branch": "main", "commit": "899e93f9f10251d7220b188eba1b837c0ba27927" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-autopairs": { "branch": "master", "commit": "3d02855468f94bf435db41b661b58ec4f48a06b7" },
   "nvim-bufdel": { "branch": "main", "commit": "523d58e94e7212fff3e05c247b962dc8f93bcfde" },
