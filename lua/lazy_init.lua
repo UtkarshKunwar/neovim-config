@@ -284,4 +284,10 @@ lazy.setup({
     },
     -- Diagram rendering
     "3rd/diagram.nvim",
+
+    -- Better looking quickfix list
+    {
+        "stevearc/quicker.nvim",
+        ft = "qf",
+    },
 })
