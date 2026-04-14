@@ -105,12 +105,6 @@ keymap(
     "<cmd>lua require'telescope.builtin'.live_grep()<CR>",
     opts
 )
-keymap(
-    "n",
-    "<C-P>",
-    "<cmd>lua require'telescope'.extensions.projects.projects()<CR>",
-    opts
-)
 
 -- NVIM-Tree --
 -- See lua/plugins/whichkey.lua

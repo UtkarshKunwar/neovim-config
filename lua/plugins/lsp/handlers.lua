@@ -60,11 +60,27 @@ local function lsp_keymaps(bufnr)
         "<cmd>lua require('telescope.builtin').lsp_definitions({show_line=false})<CR>",
         opts
     )
+    keymap(bufnr, "n", "K", "<cmd>lua require('hover').open()<CR>", opts)
+    keymap(bufnr, "n", "gK", "<cmd>lua require('hover').enter()<CR>", opts)
     keymap(
         bufnr,
         "n",
-        "K",
-        "<cmd>lua vim.lsp.buf.hover({border = 'rounded'})<CR>",
+        "<C-p>",
+        "<cmd>lua require('hover').switch('previous')<CR>",
+        opts
+    )
+    keymap(
+        bufnr,
+        "n",
+        "<C-n>",
+        "<cmd>lua require('hover').switch('next')<CR>",
+        opts
+    )
+    keymap(
+        bufnr,
+        "n",
+        "<MouseMove>",
+        "<cmd>lua require('hover').mouse()<CR>",
         opts
     )
     keymap(

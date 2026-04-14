@@ -90,6 +90,7 @@ lazy.setup({
     }, -- to close the gaps between null-ls and mason
     "RRethy/vim-illuminate", -- for hover usage highlighting
     { "ray-x/lsp_signature.nvim", event = "VeryLazy" }, -- for improved signatures
+    "lewis6991/hover.nvim", -- more hover sources
 
     -- Fuzzy file finder
     "nvim-telescope/telescope.nvim",
