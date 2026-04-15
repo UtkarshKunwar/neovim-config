@@ -231,6 +231,12 @@ lazy.setup({
 
     -- LLM
     { "David-Kunz/gen.nvim", event = "VeryLazy" },
+    {
+        "marcinjahn/gemini-cli.nvim",
+        dependencies = {
+            "folke/snacks.nvim",
+        },
+    },
 
     -- Zen Mode
     "folke/zen-mode.nvim",

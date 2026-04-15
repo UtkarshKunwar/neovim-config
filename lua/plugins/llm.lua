@@ -3,6 +3,11 @@ if not status_ok then
     return
 end
 
+local status_ok_gemini, gemini_cli = pcall(require, "gemini_cli")
+if not status_ok_gemini then
+    return
+end
+
 llm.setup({
     model = "coder_small", -- The default model to use.
     host = "localhost", -- The host running the Ollama service.
@@ -28,4 +33,27 @@ llm.setup({
     -- The executed command must return a JSON object with { response, context }
     -- (context property is optional).
     debug = false, -- Prints errors and the command which is run.
+})
+
+gemini_cli.setup({
+    -- Command that executes GeminiCLI
+    gemini_cmd = "gemini",
+    -- Command line arguments passed to gemini-cli
+    args = {},
+    -- Automatically reload buffers changed by GeminiCLI (requires vim.o.autoread = true)
+    auto_reload = false,
+    -- snacks.picker.layout.Config configuration
+    picker_cfg = {
+        preset = "telescope",
+    },
+    -- Other snacks.terminal.Opts options
+    config = {
+        os = { editPreset = "nvim-remote" },
+        gui = { nerdFontsVersion = "3" },
+    },
+    win = {
+        wo = { winbar = "GeminiCLI" },
+        style = "gemini_cli",
+        position = "float",
+    },
 })
