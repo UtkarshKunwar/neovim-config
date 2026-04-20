@@ -47,7 +47,6 @@ end
 
 local default_sources = {
     { name = "nvim_lsp" },
-    { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
@@ -139,7 +138,7 @@ cmp.setup({
             return vim_item
         end,
     },
-    sources = utils.table.concat(default_sources, {
+    sources = utils.list.concat(default_sources, {
         { name = "emoji", option = { insert = true } },
     }),
     confirm_opts = {
@@ -147,7 +146,7 @@ cmp.setup({
         select = false,
     },
     window = {
-        documentation = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered({ border = "rounded" }),
     },
     experimental = {
         ghost_text = true,
@@ -231,14 +230,14 @@ cmp_dictionary.setup({
 })
 
 cmp.setup.filetype("markdown", {
-    sources = utils.table.concat(default_sources, {
+    sources = utils.list.concat(default_sources, {
         { name = "emoji", option = { insert = false } },
         { name = "dictionary", keyword_length = 2 },
     }),
 })
 
 cmp.setup.filetype("text", {
-    sources = utils.table.concat(default_sources, {
+    sources = utils.list.concat(default_sources, {
         { name = "emoji", option = { insert = true } },
         { name = "dictionary", keyword_length = 2 },
     }),

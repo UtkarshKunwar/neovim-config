@@ -92,7 +92,9 @@ local lsp_servers = require("utils").list.concat(servers, non_mason_servers)
 for _, server in pairs(lsp_servers) do
     opts = {
         on_attach = require("plugins.lsp.handlers").on_attach,
-        capabilities = require("plugins.lsp.handlers").capabilities,
+        capabilities = vim.deepcopy(
+            require("plugins.lsp.handlers").capabilities
+        ),
     }
 
     server = vim.split(server, "@")[1]

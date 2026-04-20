@@ -6,9 +6,7 @@ end
 hover.config({
     --- List of modules names to load as providers.
     providers = {
-        "hover.providers.diagnostic",
         "hover.providers.lsp",
-        "hover.providers.dap",
         "hover.providers.man",
         "hover.providers.dictionary",
         -- Optional, disabled by default:
