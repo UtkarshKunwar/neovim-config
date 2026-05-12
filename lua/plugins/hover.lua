@@ -22,7 +22,7 @@ hover.config({
     -- Whether the contents of a currently open hover window should be moved
     -- to a :h preview-window when pressing the hover keymap.
     preview_window = true,
-    title = true,
+    title = false,
     mouse_providers = {
         "hover.providers.lsp",
     },
