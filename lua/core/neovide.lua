@@ -3,9 +3,14 @@ if vim.g.neovide then
     -- Shorten function name
     local keymap = vim.api.nvim_set_keymap
 
-    -- TODO: doesn't work for some reason
-    keymap("c", "<D-v>", "<C-R>+", opts) -- Paste command mode
-    keymap("i", "<D-v>", '<ESC>l"+Pli', opts) -- Paste insert mode
+    vim.keymap.set(
+        { "n", "v", "s", "x", "o", "i", "l", "c", "t" },
+        "<C-S-v>",
+        function()
+            vim.api.nvim_paste(vim.fn.getreg("+"), true, -1)
+        end,
+        opts
+    )
     keymap("n", "<S-Del>", "<BSP>", opts) -- Backspace when shift
     keymap("n", "<S-SPC>", "<SPC>", opts) -- Backspace when shift
 
