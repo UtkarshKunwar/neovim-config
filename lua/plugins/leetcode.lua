@@ -32,7 +32,7 @@ leetcode.setup({
             end,
         },
     },
-    editor = { reset_previous_code = false },
+    editor = { reset_previous_code = false, fold_imports = false },
     picker = { provider = "telescope" },
     image_support = not vim.g.neovide,
 })
