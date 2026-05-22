@@ -9,6 +9,7 @@ leetcode.setup({
         ["cpp"] = {
             imports = function()
                 return {
+                    "",
                     "#include <algorithm>",
                     "#include <array>",
                     "#include <climits>",
@@ -24,11 +25,14 @@ leetcode.setup({
                     "#include <set>",
                     "#include <stack>",
                     "#include <string>",
+                    "#include <string_view>",
                     "#include <unordered_map>",
                     "#include <unordered_set>",
+                    "#include <utility>",
                     "#include <vector>",
                     "",
                     "using namespace std;",
+                    "",
                 }
             end,
         },
