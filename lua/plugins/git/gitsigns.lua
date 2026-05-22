@@ -12,10 +12,10 @@ gitsigns.setup({
             text = "▎",
         },
         delete = {
-            text = "契",
+            text = "▶",
         },
         topdelete = {
-            text = "契",
+            text = "▶",
         },
         changedelete = {
             text = "▎",
