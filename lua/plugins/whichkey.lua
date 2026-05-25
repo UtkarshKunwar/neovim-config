@@ -240,3 +240,12 @@ local mappings = {
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
+
+local M = {
+    setup = setup,
+    opts = opts,
+    mappings = mappings,
+    which_key = which_key,
+}
+
+return M
