@@ -8,6 +8,7 @@ local leet_mappings = {
         name = "LeetCode",
         ["\\"] = { "<cmd>Leet console<cr>", "Open Console" },
         b = { "<cmd>Leet tabs<cr>", "List Open Tabs" },
+        c = { "<cmd>Leet console<cr>", "Open Console" },
         h = { "<cmd>Leet hints<cr>", "Show Hints" },
         i = { "<cmd>Leet inject<cr>", "Inject Headers" },
         l = { "<cmd>Leet list<cr>", "List Problems" },

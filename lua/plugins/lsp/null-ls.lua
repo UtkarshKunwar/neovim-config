@@ -36,7 +36,16 @@ null_ls.setup({
         }),
 
         -- Miscellaneous
-        diagnostics.codespell,
+        diagnostics.codespell.with({
+            extra_args = function(params)
+                local ignore_file = params.root .. "/.codespellignore"
+                if vim.fn.filereadable(ignore_file) == 1 then
+                    return { "-I", ignore_file }
+                end
+
+                return {}
+            end,
+        }),
         diagnostics.gitlint,
         diagnostics.hadolint,
         diagnostics.markdownlint,
