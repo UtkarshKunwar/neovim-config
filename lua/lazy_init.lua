@@ -91,6 +91,14 @@ lazy.setup({
     "RRethy/vim-illuminate", -- for hover usage highlighting
     { "ray-x/lsp_signature.nvim", event = "VeryLazy" }, -- for improved signatures
     "lewis6991/hover.nvim", -- more hover sources
+    {
+        "MysticalDevil/inlay-hints.nvim",
+        event = "LspAttach",
+        dependencies = { "neovim/nvim-lspconfig" }, -- optional
+        config = function()
+            require("inlay-hints").setup()
+        end,
+    },
 
     -- Fuzzy file finder
     "nvim-telescope/telescope.nvim",
