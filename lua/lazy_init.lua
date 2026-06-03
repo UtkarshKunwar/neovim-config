@@ -270,19 +270,6 @@ lazy.setup({
         end,
     },
 
-    -- 1337 anyone?
-    {
-        "kawre/leetcode.nvim",
-        build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
-        dependencies = {
-            -- include a picker of your choice, see picker section for more details
-            "nvim-lua/plenary.nvim",
-            "MunifTanjim/nui.nvim",
-            "3rd/image.nvim",
-        },
-        cmd = "Leet",
-    },
-
     -- Markdown equation rendering
     {
         "Thiago4532/mdmath.nvim",
@@ -299,6 +286,18 @@ lazy.setup({
     -- Diagram rendering
     "3rd/diagram.nvim",
 
+    -- 1337 anyone?
+    {
+        "kawre/leetcode.nvim",
+        build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+        dependencies = {
+            -- include a picker of your choice, see picker section for more details
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            "3rd/image.nvim",
+        },
+        cmd = "Leet",
+    },
     -- Better looking quickfix list
     {
         "stevearc/quicker.nvim",
