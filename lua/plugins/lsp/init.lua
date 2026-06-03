@@ -12,6 +12,7 @@ lsp_signature.setup({
     hint_prefix = " ",
 })
 
+require("plugins.lsp.folding")
 require("plugins.lsp.mason")
 require("plugins.lsp.handlers").setup()
 require("plugins.lsp.null-ls")

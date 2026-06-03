@@ -39,6 +39,17 @@ local options = {
     winwidth = 10, -- Required for the windows plugin
     winminwidth = 10, -- Required for the windows plugin
     equalalways = false, -- Required for the windows plugin
+    foldcolumn = "1",
+    foldlevel = 99,
+    foldlevelstart = 99,
+    foldenable = true,
+    fillchars = {
+        eob = " ",
+        fold = " ",
+        foldopen = "",
+        foldsep = " ",
+        foldclose = "",
+    },
 }
 
 vim.opt.shortmess:append("c")
@@ -57,6 +68,6 @@ vim.opt.showbreak = "↳"
 
 vim.opt.mousemoveevent = true
 
-vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set whichwrap+=<,>,[,],h,l]])
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work

@@ -49,3 +49,9 @@ catppuccin.setup({
 vim.cmd.colorscheme("catppuccin")
 
 vim.cmd([[highlight! Visual guibg=#505783 gui=nocombine]])
+
+vim.api.nvim_set_hl(0, "Folded", { link = "ColorColumn" })
+vim.api.nvim_set_hl(0, "FoldLineCount", {
+    fg = "#535467",
+    bg = "#181826",
+})

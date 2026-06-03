@@ -99,6 +99,12 @@ lazy.setup({
             require("inlay-hints").setup()
         end,
     },
+    -- Folding
+    {
+        "chrisgrieser/nvim-origami",
+        event = "VeryLazy",
+    },
+    "luukvbaal/statuscol.nvim",
 
     -- Fuzzy file finder
     "nvim-telescope/telescope.nvim",
