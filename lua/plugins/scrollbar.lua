@@ -14,23 +14,23 @@ scrollbar.setup({
     hide_if_all_visible = true, -- Hides everything if all lines are visible
     handle = {
         blend = 0, -- Integer between 0 and 100. 0 for fully opaque and 100 to full transparent. Defaults to 30.
+        text = "  ",
     },
     marks = {
         Cursor = {
-            text = "▮",
-        },
-        Search = {
-            highlight = "@text.todo",
-        },
-        GitAdd = {
-            text = "|",
-        },
-        GitChange = {
-            text = "|",
+            text = "  ",
         },
     },
     handlers = {
-        gitsigns = true, -- Requires gitsigns
-        search = true, -- Requires hlslens
+        gitsigns = false, -- Requires gitsigns
+        search = false, -- Requires hlslens
+        diagnostic = false,
     },
+})
+
+vim.api.nvim_set_hl(0, "ScrollbarHandle", {
+    link = "ColorColumn",
+})
+vim.api.nvim_set_hl(0, "ScrollbarCursorHandle", {
+    link = "ColorColumn",
 })

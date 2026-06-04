@@ -7,6 +7,11 @@ if not status_ok then
     return
 end
 
+local status_ok_scrollbar, scrollbar_utils = pcall(require, "scrollbar.utils")
+if not status_ok_scrollbar then
+    return
+end
+
 neoscroll.setup({
     mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-y>", "<C-e>", "zt", "zz", "zb" }, -- removed <C-f> because already mapped to find files
     easing_function = "quadratic",
@@ -15,11 +20,13 @@ neoscroll.setup({
             "WinScrolled",
             "CursorMoved",
         })
+        scrollbar_utils.hide()
     end,
     post_hook = function()
         vim.opt.eventignore:remove({
             "WinScrolled",
             "CursorMoved",
         })
+        scrollbar_utils.show()
     end,
 })
