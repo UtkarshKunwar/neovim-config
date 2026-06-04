@@ -45,6 +45,25 @@ local has_words_before = function()
             == nil
 end
 
+local context = require("cmp.config.context")
+local text_fts = {
+    "",
+    "markdown",
+    "text",
+    "gitcommit",
+}
+
+local function allow_prose_sources()
+    local ft = vim.bo.filetype
+    if vim.tbl_contains(text_fts, ft) then
+        return true
+    end
+
+    -- If in code, only allow if the cursor is inside a comment
+    return context.in_treesitter_capture("comment")
+        or context.in_syntax_group("Comment")
+end
+
 local default_sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
@@ -52,6 +71,13 @@ local default_sources = {
     { name = "path" },
     { name = "calc" },
     { name = "git" },
+    {
+        name = "dictionary",
+        keyword_length = 2,
+        entry_filter = function()
+            return allow_prose_sources()
+        end,
+    },
 }
 
 cmp.setup({
@@ -139,7 +165,13 @@ cmp.setup({
         end,
     },
     sources = utils.list.concat(default_sources, {
-        { name = "emoji", option = { insert = true } },
+        {
+            name = "emoji",
+            option = { insert = true },
+            entry_filter = function()
+                return allow_prose_sources()
+            end,
+        },
     }),
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
@@ -231,14 +263,12 @@ cmp_dictionary.setup({
 
 cmp.setup.filetype("markdown", {
     sources = utils.list.concat(default_sources, {
-        { name = "emoji", option = { insert = false } },
-        { name = "dictionary", keyword_length = 2 },
-    }),
-})
-
-cmp.setup.filetype("text", {
-    sources = utils.list.concat(default_sources, {
-        { name = "emoji", option = { insert = true } },
-        { name = "dictionary", keyword_length = 2 },
+        {
+            name = "emoji",
+            option = { insert = true },
+            entry_filter = function()
+                return allow_prose_sources()
+            end,
+        },
     }),
 })
