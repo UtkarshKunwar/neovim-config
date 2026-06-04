@@ -305,6 +305,9 @@ lazy.setup({
     },
 
     -- Draw flowcharts for documentation
-    { "jbyuki/venn.nvim", dependencies = { "nvimtools/hydra.nvim" } },
+    {
+        "jbyuki/venn.nvim",
+        dependencies = { "nvimtools/hydra.nvim", "nvim-mini/mini.move" },
+    },
     "superhawk610/ascii-blocks.nvim",
 })
