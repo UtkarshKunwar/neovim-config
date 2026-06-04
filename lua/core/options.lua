@@ -50,6 +50,7 @@ local options = {
         foldsep = " ",
         foldclose = "",
     },
+    virtualedit = "block",
 }
 
 vim.opt.shortmess:append("c")

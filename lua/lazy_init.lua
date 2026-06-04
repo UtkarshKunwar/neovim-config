@@ -303,4 +303,7 @@ lazy.setup({
         "stevearc/quicker.nvim",
         ft = "qf",
     },
+
+    -- Draw flowcharts for documentation
+    { "jbyuki/venn.nvim", dependencies = { "nvimtools/hydra.nvim" } },
 })
