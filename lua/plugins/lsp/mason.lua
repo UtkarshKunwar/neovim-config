@@ -108,15 +108,14 @@ for _, server in pairs(lsp_servers) do
     if server == "lua_ls" then
         local lua_settings = {
             Lua = {
+                -- lazydev automatically configures the workspace and globals for Neovim,
+                -- but we can still add personal stylistic linting rules here.
+                hint = { enable = true, arrayIndex = "Disable" },
+                telemetry = { enable = false },
                 diagnostics = {
-                    globals = { "vim" },
+                    disable = { "missing-fields" },
                 },
-                workspace = {
-                    library = {},
-                },
-                format = {
-                    enable = false,
-                },
+                format = { enable = false },
             },
         }
         opts["settings"] = lua_settings

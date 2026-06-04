@@ -58,7 +58,6 @@ null_ls.setup({
         }),
         require("none-ls-shellcheck.diagnostics"), -- Legacy
         require("none-ls-shellcheck.code_actions"), -- Legacy
-        diagnostics.selene,
         formatting.mdformat.with({ extra_args = { "--wrap", "80" } }),
         formatting.prettier,
         formatting.protolint,

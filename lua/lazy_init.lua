@@ -2,14 +2,10 @@
 -- Plugin manager configuration file
 -----------------------------------------------------------
 
--- Plugin manager: packer.nvim
--- url: https://github.com/wbthomason/packer.nvim
+-- Plugin manager: lazy.nvim
+-- url: https://github.com/folke/lazy.nvim
 
--- For information about installed plugins see the README:
--- neovim-lua/README.md
--- https://github.com/brainfucksec/neovim-lua#readme
-
--- Automatically install packer
+-- Automatically install lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -26,14 +22,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Remap backslash as leader key
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
-
--- Autocommand that reloads neovim whenever you save the packer_init.lua file
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost packer_init.lua source <afile> | PackerSync
---   augroup end
--- ]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, lazy = pcall(require, "lazy")
@@ -310,4 +298,17 @@ lazy.setup({
         dependencies = { "nvimtools/hydra.nvim", "nvim-mini/mini.move" },
     },
     "superhawk610/ascii-blocks.nvim",
+
+    -- NVIM completions
+    {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+            library = {
+                -- Optional: Load luvit types when the `vim.uv` word is found
+                { path = "luvit-meta/library", words = { "vim%.uv" } },
+            },
+        },
+    },
+    { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
 })
