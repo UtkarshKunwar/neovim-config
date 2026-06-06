@@ -231,7 +231,7 @@ local hint = [[
  
  =============================== 
  
- _<ESC>_/_<leader>d_ to exit 
+ _<ESC>_/_<leader>f_ to exit 
 ]]
 
 Hydra({
@@ -267,7 +267,7 @@ Hydra({
         end,
     },
     mode = "n",
-    body = "<leader>d",
+    body = "<leader>f",
     heads = {
         -- Change Brush Style
         {
@@ -363,6 +363,6 @@ Hydra({
 
         -- Exit keys
         { "<ESC>", nil, { exit = true, nowait = true } },
-        { "<leader>d", nil, { exit = true, nowait = true } },
+        { "<leader>f", nil, { exit = true, nowait = true } },
     },
 })
