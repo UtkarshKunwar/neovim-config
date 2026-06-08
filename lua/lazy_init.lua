@@ -84,7 +84,9 @@ lazy.setup({
         event = "LspAttach",
         dependencies = { "neovim/nvim-lspconfig" }, -- optional
         config = function()
-            require("inlay-hints").setup()
+            require("inlay-hints").setup({
+                autocmd = { enable = false },
+            })
         end,
     },
     -- Folding

@@ -99,6 +99,7 @@ local mappings = {
         "Toggle File Explorer",
     },
     ["h"] = { ":nohl<CR>", "No Highlight" },
+    ["i"] = { "<cmd>InlayHintsToggle<CR>", "Toggle Inlay Hints" },
     ["q"] = { "<cmd>lua SmartQuit()<CR>", "Close Tab" },
 
     g = {
