@@ -231,7 +231,7 @@ local hint = [[
  
  =============================== 
  
- _<ESC>_/_<leader>f_ to exit 
+ _<leader>f_ to exit 
 ]]
 
 Hydra({
@@ -260,6 +260,8 @@ Hydra({
         on_enter = function()
             -- Reset brush to Single line on start
             state_saver.set_option("virtualedit", "all", { win = 0 })
+            state_saver.set_option("cursorline", true, { win = 0 })
+            state_saver.set_option("cursorcolumn", true, { win = 0 })
         end,
         on_exit = function()
             vim.b.venn_brush = ""
@@ -362,7 +364,6 @@ Hydra({
         },
 
         -- Exit keys
-        { "<ESC>", nil, { exit = true, nowait = true } },
         { "<leader>f", nil, { exit = true, nowait = true } },
     },
 })
