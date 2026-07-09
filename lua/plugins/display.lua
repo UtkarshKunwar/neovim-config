@@ -17,6 +17,10 @@ image.setup({
             filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
         },
     },
+    window_overlap_clear_enabled = true,
+
+    -- so images don't aggressively flicker when typing
+    window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
 })
 
 local diagram_status_ok, diagram = pcall(require, "diagram")
