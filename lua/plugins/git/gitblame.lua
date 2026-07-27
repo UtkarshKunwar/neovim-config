@@ -4,8 +4,8 @@ if not status_ok_gitblame then
 end
 
 gitblame.setup({
-    message_template = "  <author> (<date>): <summary>",
-    date_format = "%b%d'%y %H:%M",
+    message_template = "  <author> (<sha>, <date>): <summary>",
+    date_format = "%y/%m/%d %H:%M",
     delay = 0,
-    virtual_text_column = 91,
+    virtual_text_column = vim.o.textwidth + 1,
 })

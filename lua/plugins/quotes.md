@@ -25,3 +25,4 @@
 - Mock me if you want. Curse me if you must. I do this to build my utopia. - Vinland Saga
 - We are born not all at once, but by bits.
 - The best is the enemy of the good.
+- Always code as if the guy who ends up maintaining it will be a violent psychopath who knows where you live.
