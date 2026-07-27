@@ -7,4 +7,5 @@ hop.setup({
     keys = "sadfjklewcmpgh",
     teasing = false,
     case_insensitive = true,
+    uppercase_labels = true,
 })

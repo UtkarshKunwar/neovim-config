@@ -102,8 +102,8 @@ lazy.setup({
 
     -- Motion
     {
-        "phaazon/hop.nvim",
-        branch = "v2", -- optional but strongly recommended
+        "wsdjeg/hop.nvim",
+        version = "*",
     },
     "karb94/neoscroll.nvim",
 
