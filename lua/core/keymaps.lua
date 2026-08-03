@@ -126,3 +126,7 @@ keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
 keymap("n", "<Leader>cc", "<cmd>TextCaseOpenTelescope<CR>", opts)
 keymap("x", "<Leader>cc", "<cmd>TextCaseOpenTelescope<CR>", opts)
 keymap("n", "<Leader>cr", "<cmd>TextCaseOpenTelescopeLSPChange<CR>", opts)
+
+-- mini.move
+keymap("x", ">", "<cmd>lua MiniMove.move_selection('right')<CR>", opts)
+keymap("x", "<", "<cmd>lua MiniMove.move_selection('left')<CR>", opts)
