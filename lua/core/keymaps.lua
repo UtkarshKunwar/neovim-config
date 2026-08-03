@@ -6,8 +6,9 @@ local keymap = vim.keymap.set
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
+--   visual_and_select_mode = "v",
+--   visual_mode = "x",
+--   select_mode = "s",
 --   term_mode = "t",
 --   command_mode = "c",
 
@@ -64,8 +65,8 @@ keymap("i", "kj", "<ESC>", opts)
 keymap("i", "<S-Del>", "<BS>", opts)
 
 -- Visual --
-keymap("v", "p", '"_dP', opts)
-keymap("v", "<C-C>", "y", opts)
+keymap("x", "p", '"_dP', opts)
+keymap("x", "<C-C>", "y", opts)
 
 -- Visual Block --
 keymap("x", "<C-C>", "y", opts)
@@ -123,5 +124,5 @@ keymap("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], opts)
 
 -- Text-Case
 keymap("n", "<Leader>cc", "<cmd>TextCaseOpenTelescope<CR>", opts)
-keymap("v", "<Leader>cc", "<cmd>TextCaseOpenTelescope<CR>", opts)
+keymap("x", "<Leader>cc", "<cmd>TextCaseOpenTelescope<CR>", opts)
 keymap("n", "<Leader>cr", "<cmd>TextCaseOpenTelescopeLSPChange<CR>", opts)
